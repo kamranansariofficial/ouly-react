@@ -63,7 +63,7 @@ const SUCCESS = {
 const WARNING = {
   lighter: "#FFF7CD",
   light: "#FFE16A",
-  main: "#FFC107",
+  main: "#FFC300",
   dark: "#B78103",
   darker: "#7A4F01",
   contrastText: GREY[800],

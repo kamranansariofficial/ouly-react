@@ -5,14 +5,11 @@ import { Link as RouterLink } from "react-router-dom";
 import { Link, Box, Stack, Typography } from "@mui/material";
 
 // login form
-import { LoginCard } from "components/card";
-
-// styles
-import RootStyled from "./styled";
+import { LoginCard } from "components";
 
 export default function Login() {
   return (
-    <RootStyled>
+    <Box className="auth-main">
       <Box className="top-left-circle" />
       <Stack spacing={2} className="main">
         <LoginCard />
@@ -30,6 +27,6 @@ export default function Login() {
         </Typography>
       </Stack>
       <Box className="bottom-right-circle" />
-    </RootStyled>
+    </Box>
   );
 }

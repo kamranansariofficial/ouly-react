@@ -1,10 +1,13 @@
 import { useState } from "react";
+// react router dom
+import { useNavigate } from "react-router-dom";
+// yup
 import * as Yup from "yup";
+// formik
 import { useFormik, Form, FormikProvider } from "formik";
 // material
 import { Stack, TextField, Typography, Alert } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-import { useNavigate } from "react-router-dom";
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {

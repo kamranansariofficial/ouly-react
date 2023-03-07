@@ -1,2 +1,3 @@
-export { default as LoginCard } from "./loginCard/LoginCard";
-export { default as SignUpCard } from "./signUpCard/signUpCard";
+export * from "./loginCard";
+export * from "./signUpCard";
+export * from "./informationCard";

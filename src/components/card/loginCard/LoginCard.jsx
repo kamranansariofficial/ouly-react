@@ -1,7 +1,10 @@
-import { CardContent, Typography } from "@mui/material";
-import { LoginForm } from "components/forms";
 import React from "react";
+// material
+import { CardContent, Typography } from "@mui/material";
+// components
+import { LoginForm } from "components";
 import RootStyled from "./styled";
+
 export default function LoginCard() {
   return (
     <RootStyled>

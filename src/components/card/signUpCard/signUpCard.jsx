@@ -1,7 +1,10 @@
-import { CardContent, Typography } from "@mui/material";
-import { SignUpForm } from "components/forms";
 import React from "react";
+// material
+import { CardContent, Typography } from "@mui/material";
+// components
+import { SignUpForm } from "components/forms";
 import RootStyled from "./styled";
+
 export default function SignUpCard() {
   return (
     <RootStyled>

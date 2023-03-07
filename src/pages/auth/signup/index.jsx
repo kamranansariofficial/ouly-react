@@ -5,13 +5,12 @@ import { Box, Link, Stack, Typography } from "@mui/material";
 
 // login form
 
-// styles
-import RootStyled from "../login/styled";
-import SignUpCard from "components/card/signUpCard/signUpCard";
+// components
+import { SignUpCard } from "components";
 
 export default function SignUp() {
   return (
-    <RootStyled>
+    <Box className="auth-main">
       <Box className="top-left-circle" />
       <Stack spacing={2} className="main">
         <SignUpCard />
@@ -29,6 +28,6 @@ export default function SignUp() {
         </Typography>
       </Stack>
       <Box className="bottom-right-circle" />
-    </RootStyled>
+    </Box>
   );
 }

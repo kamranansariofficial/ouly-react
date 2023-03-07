@@ -1,6 +1,6 @@
 // material
-import { useTheme } from '@mui/material/styles';
-import { GlobalStyles as GlobalThemeStyles } from '@mui/material';
+import { useTheme } from "@mui/material/styles";
+import { GlobalStyles as GlobalThemeStyles } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
@@ -10,65 +10,106 @@ export default function GlobalStyles() {
   return (
     <GlobalThemeStyles
       styles={{
-        '*': {
+        "*": {
           margin: 0,
           padding: 0,
-          boxSizing: 'border-box'
+          boxSizing: "border-box",
         },
         html: {
-          width: '100%',
-          height: '100%',
-          WebkitOverflowScrolling: 'touch'
+          width: "100%",
+          height: "100%",
+          WebkitOverflowScrolling: "touch",
         },
         body: {
-          width: '100%',
-          height: '100%'
+          width: "100%",
+          height: "100%",
         },
-        '#root': {
-          width: '100%',
-          height: '100%'
+        "#root": {
+          width: "100%",
+          height: "100%",
         },
         input: {
-          '&[type=number]': {
-            MozAppearance: 'textfield',
-            '&::-webkit-outer-spin-button': {
+          "&[type=number]": {
+            MozAppearance: "textfield",
+            "&::-webkit-outer-spin-button": {
               margin: 0,
-              WebkitAppearance: 'none'
+              WebkitAppearance: "none",
             },
-            '&::-webkit-inner-spin-button': {
+            "&::-webkit-inner-spin-button": {
               margin: 0,
-              WebkitAppearance: 'none'
-            }
-          }
+              WebkitAppearance: "none",
+            },
+          },
         },
         textarea: {
-          '&::-webkit-input-placeholder': {
-            color: theme.palette.text.disabled
+          "&::-webkit-input-placeholder": {
+            color: theme.palette.text.disabled,
           },
-          '&::-moz-placeholder': {
+          "&::-moz-placeholder": {
             opacity: 1,
-            color: theme.palette.text.disabled
+            color: theme.palette.text.disabled,
           },
-          '&:-ms-input-placeholder': {
-            color: theme.palette.text.disabled
+          "&:-ms-input-placeholder": {
+            color: theme.palette.text.disabled,
           },
-          '&::placeholder': {
-            color: theme.palette.text.disabled
-          }
+          "&::placeholder": {
+            color: theme.palette.text.disabled,
+          },
         },
-
-        img: { display: 'block', maxWidth: '100%' },
-
-        // Lazy Load Img
-        '.blur-up': {
-          WebkitFilter: 'blur(5px)',
-          filter: 'blur(5px)',
-          transition: 'filter 400ms, -webkit-filter 400ms'
+        "& .auth-main": {
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          "& .top-left-circle": {
+            position: "fixed",
+            left: -268,
+            top: -186,
+            content: "''",
+            width: 500,
+            height: 500,
+            background: theme.palette.grey[200],
+            zIndex: 2,
+            borderRadius: "50%",
+            "&:before": {
+              position: "fixed",
+              left: -114,
+              top: -328,
+              content: "''",
+              width: 500,
+              height: 500,
+              border: `0.5px solid ${theme.palette.primary.main}`,
+              zIndex: 1,
+              borderRadius: "50%",
+            },
+          },
+          "& .bottom-right-circle": {
+            position: "fixed",
+            right: -114,
+            bottom: -328,
+            content: "''",
+            width: 500,
+            height: 500,
+            background: theme.palette.grey[200],
+            zIndex: 2,
+            borderRadius: "50%",
+            "&:before": {
+              position: "fixed",
+              right: -268,
+              bottom: -186,
+              content: "''",
+              width: 500,
+              height: 500,
+              border: `0.5px solid ${theme.palette.primary.main}`,
+              zIndex: 1,
+              borderRadius: "50%",
+            },
+          },
+          "& .main": {
+            alignItems: "center",
+            width: "100%",
+          },
         },
-        '.blur-up.lazyloaded ': {
-          WebkitFilter: 'blur(0)',
-          filter: 'blur(0)'
-        }
       }}
     />
   );

@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { useRoutes } from "react-router-dom";
 // layouts
-// import MainLayout from '../layouts/main';
+import { Layout } from "layout";
 import { LoadingScreen } from "components";
 
 // ----------------------------------------------------------------------
@@ -33,6 +33,27 @@ export default function Router() {
         },
       ],
     },
+    {
+      path: "dashboard",
+      children: [
+        {
+          path: "",
+          element: (
+            <Layout>
+              <Dashboard />
+            </Layout>
+          ),
+        },
+        {
+          path: "product",
+          element: (
+            <Layout>
+              <MyProduct />
+            </Layout>
+          ),
+        },
+      ],
+    },
   ]);
 }
 
@@ -41,3 +62,5 @@ export default function Router() {
 // Authentication
 const Login = Loadable(lazy(() => import("pages/auth/login")));
 const SignUp = Loadable(lazy(() => import("pages/auth/signup")));
+const Dashboard = Loadable(lazy(() => import("pages/dashboard")));
+const MyProduct = Loadable(lazy(() => import("pages/dashboard/myProduct")));
