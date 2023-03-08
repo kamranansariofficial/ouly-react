@@ -1,4 +1,6 @@
 import React from "react";
+// react router dom
+import { useNavigate } from "react-router-dom";
 // material
 import {
   CardContent,
@@ -15,6 +17,7 @@ import {
 import RootStyled from "./styled";
 
 export default function InformationCard() {
+  const navigate = useNavigate();
   return (
     <RootStyled>
       <CardContent p={4}>
@@ -45,6 +48,7 @@ export default function InformationCard() {
                           USD
                         </Typography>
                         <Divider
+                          className="hr-column"
                           orientation="vertical"
                           variant="middle"
                           flexItem
@@ -83,6 +87,7 @@ export default function InformationCard() {
                 size="large"
                 color="primary"
                 fullWidth
+                onClick={() => navigate("/customer-information")}
               >
                 continue
               </Button>

@@ -10,7 +10,7 @@ function createGradient(color1, color2) {
 const GREY = {
   0: "#FFFFFF",
   100: "#F9FAFB",
-  200: "#F0EFF9",
+  200: "#E5E7EC",
   300: "#DFE3E8",
   400: "#929EAE",
   500: "#919EAB",

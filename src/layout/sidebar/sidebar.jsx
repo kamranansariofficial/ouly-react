@@ -1,20 +1,22 @@
 import * as React from "react";
+// react router dom
+import { useNavigate, useLocation } from "react-router-dom";
+// material
 import Box from "@mui/material/Box";
-
-import AppBar from "@mui/material/AppBar";
-import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ReactSVG from "utils/reactSVG";
+// components
 import RootStyled from "./styled";
 import menuConfig from "../config";
 
 export default function ClippedDrawer({ children }) {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   return (
     <RootStyled variant="permanent">
       <Toolbar className="toolbar" />
@@ -23,7 +25,8 @@ export default function ClippedDrawer({ children }) {
           {menuConfig.map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton
-                className={`list-item ${index === 0 && "active"}`}
+                onClick={() => navigate(text.link)}
+                className={`list-item ${pathname === text.link && "active"}`}
               >
                 <ListItemIcon>
                   <ReactSVG name={text.icon} />

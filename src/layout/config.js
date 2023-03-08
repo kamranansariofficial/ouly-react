@@ -1,6 +1,6 @@
 const menuConfig = [
   {
-    link: "/",
+    link: "/dashboard",
     title: "Dashboard",
     icon: "dashboard",
   },

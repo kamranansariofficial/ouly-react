@@ -7,7 +7,12 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Zoom from "@mui/material/Zoom";
 // components
-import { OulyTabSection, Plagify, ProductInformation } from "components";
+import {
+  MyProduct,
+  OulyTabSection,
+  Plagify,
+  ProductInformation,
+} from "components";
 import RootStyled from "./styled";
 export default function Home() {
   const [value, setValue] = React.useState(0);
@@ -35,6 +40,13 @@ export default function Home() {
           <Zoom in={value}>
             <div>
               <Plagify />
+            </div>
+          </Zoom>
+        </TabPanel>
+        <TabPanel value={2}>
+          <Zoom in={value}>
+            <div>
+              <MyProduct />
             </div>
           </Zoom>
         </TabPanel>

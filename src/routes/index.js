@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { useRoutes } from "react-router-dom";
+import { useRoutes, Navigate } from "react-router-dom";
 // layouts
 import { Layout } from "layout";
 import { LoadingScreen } from "components";
@@ -34,24 +34,15 @@ export default function Router() {
       ],
     },
     {
-      path: "dashboard",
+      path: "",
+      element: <Layout />,
       children: [
-        {
-          path: "",
-          element: (
-            <Layout>
-              <Dashboard />
-            </Layout>
-          ),
-        },
-        {
-          path: "product",
-          element: (
-            <Layout>
-              <MyProduct />
-            </Layout>
-          ),
-        },
+        { element: <Navigate to="/dashboard" replace /> },
+        { path: "dashboard", element: <Dashboard /> },
+        { path: "product", element: <MyProduct /> },
+        { path: "edit-product", element: <EditProduct /> },
+        { path: "customer-information", element: <CustomerInformation /> },
+        { path: "advantages-product", element: <AdvantagesProduct /> },
       ],
     },
   ]);
@@ -63,4 +54,11 @@ export default function Router() {
 const Login = Loadable(lazy(() => import("pages/auth/login")));
 const SignUp = Loadable(lazy(() => import("pages/auth/signup")));
 const Dashboard = Loadable(lazy(() => import("pages/dashboard")));
-const MyProduct = Loadable(lazy(() => import("pages/dashboard/myProduct")));
+const MyProduct = Loadable(lazy(() => import("pages/dashboard/product")));
+const EditProduct = Loadable(lazy(() => import("pages/dashboard/editProduct")));
+const AdvantagesProduct = Loadable(
+  lazy(() => import("pages/dashboard/advantagesProduct"))
+);
+const CustomerInformation = Loadable(
+  lazy(() => import("pages/dashboard/customerInformation"))
+);

@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import RootStyled from "./styled";
 import { Topbar } from "./topbar";
 import { Sidebar } from "./sidebar";
+import { Outlet } from "react-router-dom";
 
 export default function ClippedDrawer({ children }) {
   return (
@@ -14,7 +15,7 @@ export default function ClippedDrawer({ children }) {
       <Sidebar />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar className="toolbar" />
-        {children}
+        <Outlet />
       </Box>
     </RootStyled>
   );
