@@ -1,0 +1,26 @@
+import { alpha, styled } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+
+const RootStyled = styled(AppBar)(({ theme }) => ({
+  boxShadow: "none",
+  "& .toolbar": {
+    justifyContent: "space-between",
+    "& .divider": {
+      height: 36,
+      marginTop: "auto",
+      marginBottom: "auto",
+    },
+    "& .reload-icon-button": {
+      "& >div >div": {
+        display: "flex",
+        alignItems: "center",
+      },
+    },
+    "& .save-btn": {
+      paddingLeft: theme.spacing(4.5),
+      paddingRight: theme.spacing(4.5),
+    },
+  },
+}));
+
+export default RootStyled;

@@ -66,7 +66,7 @@ export default function EditProductForm() {
             variant="contained"
             size="large"
             color="primary"
-            onClick={() => navigate("/advantages-product")}
+            onClick={() => navigate("/dashboard/advantages-product")}
             fullWidth
           >
             continue

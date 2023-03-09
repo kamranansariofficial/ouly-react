@@ -159,7 +159,7 @@ export default function CustomerInformationCard() {
               variant="contained"
               size="large"
               color="primary"
-              onClick={() => navigate("/edit-product")}
+              onClick={() => navigate("/dashboard/edit-product")}
               fullWidth
             >
               continue

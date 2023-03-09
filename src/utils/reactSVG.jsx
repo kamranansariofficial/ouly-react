@@ -3,7 +3,7 @@ import { ReactSVG } from "react-svg";
 import { styled } from "@mui/material/styles";
 
 const RootStyled = styled(ReactSVG)(({ theme, height, width }) => ({
-  "& > div": {
+  "& > div, svg": {
     height: height || 24,
     width: width || 24,
   },

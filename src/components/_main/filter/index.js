@@ -1,4 +1,4 @@
-export { default as Filter } from "./Filter";
+export { default as Filter } from "./filter";
 export * from "./colorPicker";
 export * from "./form";
 export * from "./select";

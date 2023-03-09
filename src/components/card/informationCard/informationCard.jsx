@@ -87,7 +87,7 @@ export default function InformationCard() {
                 size="large"
                 color="primary"
                 fullWidth
-                onClick={() => navigate("/customer-information")}
+                onClick={() => navigate("/dashboard/customer-information")}
               >
                 continue
               </Button>

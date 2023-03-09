@@ -1,1 +1,2 @@
-export { default as Layout } from "./layout";
+export * from "./dashboardLayout";
+export * from "./editLayout";

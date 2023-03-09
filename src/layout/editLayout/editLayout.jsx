@@ -1,19 +1,20 @@
 import * as React from "react";
+// react router dom
+import { Outlet } from "react-router-dom";
+// material
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
+// layout
 import RootStyled from "./styled";
 import { Topbar } from "./topbar";
-import { Sidebar } from "./sidebar";
-import { Outlet } from "react-router-dom";
 
-export default function ClippedDrawer({ children }) {
+export default function EditLayout() {
   return (
     <RootStyled>
       <CssBaseline />
       <Topbar />
-      <Sidebar />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main">
         <Toolbar className="toolbar" />
         <Outlet />
       </Box>
