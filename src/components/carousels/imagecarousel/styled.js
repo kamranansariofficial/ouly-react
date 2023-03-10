@@ -4,7 +4,7 @@ const RootStyled = styled("div")(({ theme }) => ({
   position: "relative",
   overflow: "hidden",
   paddingTop: "100%",
-  background: theme.palette.background.paper,
+  background: theme.palette.background.default,
   borderRadius: 0,
   "& .motion-dev": {
     position: "absolute",
@@ -33,12 +33,30 @@ const RootStyled = styled("div")(({ theme }) => ({
     width: "100%",
     height: "100%",
     position: "absolute",
-    background:
-      theme.palette.mode === "dark" ? alpha(theme.palette.grey[800], 0.2) : "",
   },
   "& .controls-wrapper": {
     paddingTop: theme.spacing(2),
-    overflow: "auto",
+    overflow: "hidden",
+    position: "relative",
+    zIndex: 22,
+    "& .controls-wrapper-btn": {
+      position: "absolute",
+      top: 0,
+      lef: 0,
+      height: "100%",
+      width: "100%",
+      marginTop: "5px",
+      "& button": {
+        minWidth: 10,
+        height: 75,
+        border: `1px solid ${theme.palette.divider}`,
+        background: theme.palette.background.paper,
+        svg: {
+          fontSize: 10,
+          color: theme.palette.common.black,
+        },
+      },
+    },
     "& .controls-button": {
       minWidth: 60,
       minHeight: 60,

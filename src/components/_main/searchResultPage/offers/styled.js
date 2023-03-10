@@ -12,5 +12,8 @@ const RootStyled = styled("div")(({ theme }) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  "& .skeleton-circular": {
+    borderRadius: "57.0467px",
+  },
 }));
 export default RootStyled;

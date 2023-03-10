@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const RootStyled = styled(Box)(({ theme }) => ({
+const RootStyled = styled(Box)(({ theme, isLoading }) => ({
   height: 207,
   margin: theme.spacing(3, 0),
-  background: theme.palette.background.neutral,
+  background: isLoading ? "" : theme.palette.background.neutral,
   "& .background-img": {
     position: "relative",
     "& .img-position": {
       position: "absolute",
-      top: 0,
+      top: "6%",
       right: 0,
     },
   },

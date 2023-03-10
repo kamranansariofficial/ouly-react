@@ -3,7 +3,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 
 const RootStyled = styled(RadioGroup)(({ theme }) => ({
   "& .radio-wrapper": {
-    padding: "5px",
+    padding: 0,
+    marginRight: theme.spacing(1),
     color: "transparent",
     "&:hover": { opacity: 0.72 },
     "& .icon-color": {

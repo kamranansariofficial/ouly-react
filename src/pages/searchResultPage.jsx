@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // material
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import { SearchResultCard, SearchResultToolbar } from "components";
 
 export default function SearchResultPage() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   return (
     <Box>
-      <SearchResultToolbar />
-      <SearchResultCard />
+      <SearchResultToolbar isLoading={loading} />
+      <SearchResultCard isLoading={loading} />
     </Box>
   );
 }

@@ -14,24 +14,24 @@ import {
 } from "components";
 import RootStyled from "./styled";
 
-export default function SearchResultCard() {
+export default function SearchResultCard({ isLoading }) {
   return (
-    <RootStyled>
+    <RootStyled isLoading={isLoading}>
       <CardContent>
         <Grid container spacing={2}>
-          <Grid item lg={6}>
-            <ImageCarousel />
+          <Grid item md={12} lg={6}>
+            <ImageCarousel isLoading={isLoading} />
           </Grid>
-          <Grid item lg={6}>
-            <ProductSummary />
+          <Grid item md={12} lg={6}>
+            <ProductSummary isLoading={isLoading} />
           </Grid>
         </Grid>
-        <Brands />
-        <CustomerProducts />
-        <Banner />
-        <Blog />
-        <Offers />
-        <AboutUs />
+        <Brands isLoading={isLoading} />
+        <CustomerProducts isLoading={isLoading} />
+        <Banner isLoading={isLoading} />
+        <Blog isLoading={isLoading} />
+        <Offers isLoading={isLoading} />
+        <AboutUs isLoading={isLoading} />
       </CardContent>
     </RootStyled>
   );

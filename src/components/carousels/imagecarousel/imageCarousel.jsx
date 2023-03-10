@@ -2,7 +2,9 @@
 import { useState } from "react";
 
 // material
-import { Box, Stack } from "@mui/material";
+import { Box, Button, Stack, IconButton, Skeleton } from "@mui/material";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 // framer motion
 import { motion, AnimatePresence } from "framer-motion";
@@ -63,11 +65,13 @@ const swipePower = (offset, velocity) => {
 
 // ----------------------------------------------------------------------
 function CarouselItem({ ...props }) {
-  const { item } = props;
+  const { item, index, setPage, isLoading } = props;
 
   return (
     <div className="slide-wrapper">
-      {item && (
+      {isLoading || !item ? (
+        <Skeleton variant="rounded" height={385} width="100%" />
+      ) : (
         <img
           src={item.src}
           objectFit="cover"
@@ -76,13 +80,14 @@ function CarouselItem({ ...props }) {
           alt="hero-carousel"
         />
       )}
-      <Box className="bg-overlay" />
+      {!isLoading && <Box className="bg-overlay" />}
     </div>
   );
 }
 
-export default function ImageCarousel() {
+export default function ImageCarousel({ isLoading }) {
   const [[page, direction], setPage] = useState([0, 0]);
+  const [page1, setPage1] = useState(0);
   const imageIndex = Math.abs(page % product?.length);
 
   const paginate = (newDirection) => {
@@ -117,20 +122,48 @@ export default function ImageCarousel() {
           }}
         >
           <CarouselItem
+            isLoading={isLoading}
             item={product[imageIndex]}
             index={product[imageIndex]}
             activeStep={imageIndex}
             isActive={imageIndex}
             key={Math.random()}
+            setPage={setPage}
           />
         </motion.div>
       </AnimatePresence>
       <Stack
         direction="row"
         justifyContent={product.length < 6 ? "center" : "left"}
-        spacing={1}
         className="controls-wrapper"
       >
+        <Stack
+          direction="row"
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          spacing={1}
+          className="controls-wrapper-btn"
+        >
+          {!isLoading && (
+            <>
+              {" "}
+              <Button
+                onClick={() => {
+                  setPage([page - 1, page - 1]);
+                }}
+              >
+                <ArrowBackIosIcon />
+              </Button>
+              <Button
+                onClick={() => {
+                  setPage([page + 1, page + 1]);
+                }}
+              >
+                <ArrowForwardIosIcon />
+              </Button>
+            </>
+          )}
+        </Stack>
         {product.map((item, i) => (
           <Box
             key={Math.random()}
@@ -138,21 +171,19 @@ export default function ImageCarousel() {
             onClick={() => {
               setPage([i, i]);
             }}
+            mx={1}
           >
-            <img
-              src={item.src}
-              objectFit="cover"
-              width={60}
-              height={76}
-              alt="hero-carousel"
-            />
-            {/* <Image
-              priority
-              fill
-              
-              placeholder="blur"
-              blurDataURL={item.blurDataURL}
-            /> */}
+            {isLoading ? (
+              <Skeleton width={60} height={76} variant="rounded" />
+            ) : (
+              <img
+                src={item.src}
+                objectFit="cover"
+                width={60}
+                height={76}
+                alt="hero-carousel"
+              />
+            )}
           </Box>
         ))}
       </Stack>

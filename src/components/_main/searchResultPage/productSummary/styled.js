@@ -7,11 +7,11 @@ const RootStyled = styled("div")(({ theme }) => ({
 
   "& .list": {
     "& .MuiListItem-root": {
-      border: "1px solid #fff",
-      background: theme.palette.background.neutral,
+      background: "transparent",
       height: "35px",
       paddingLeft: theme.spacing(1.4),
       paddingRight: theme.spacing(1.4),
+      overflow: "hidden",
       "&.border-top": {
         borderTopLeftRadius: "10px",
         borderTopRightRadius: "10px",
@@ -22,6 +22,11 @@ const RootStyled = styled("div")(({ theme }) => ({
       },
       "& .MuiListItemIcon-root": {
         minWidth: 27,
+      },
+      "&.is-loading": {
+        background: "transparent",
+        paddingLeft: theme.spacing(0),
+        paddingRight: theme.spacing(0),
       },
     },
   },

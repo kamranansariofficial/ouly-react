@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   ListItemText,
   IconButton,
+  Skeleton,
   Button,
 } from "@mui/material";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
@@ -50,7 +51,7 @@ const data = [
   },
 ];
 
-const Incrementer = () => {
+const Incrementer = ({ isLoading }) => {
   const [value, setValue] = useState(0);
 
   const incrementQuantity = () => {
@@ -60,7 +61,9 @@ const Incrementer = () => {
     setValue(value - 1);
   };
 
-  return (
+  return isLoading ? (
+    <Skeleton variant="rounded" width={87} height={36} />
+  ) : (
     <Stack
       direction="row"
       alignItems="center"
@@ -85,18 +88,38 @@ const Incrementer = () => {
   );
 };
 
-export default function ProductSummary() {
+export default function ProductSummary({ isLoading }) {
   return (
     <RootStyled>
       <Stack spacing={0.5}>
-        <Typography variant="body2">CURLISTAR</Typography>
-        <Typography variant="h5">CURLISTA Pro 5 IN 1</Typography>
+        <Typography variant="body2">
+          {isLoading ? <Skeleton variant="text" width={68} /> : "CURLISTAR"}
+        </Typography>
+        <Typography variant="h5">
+          {" "}
+          {isLoading ? (
+            <Skeleton variant="text" width={174} />
+          ) : (
+            "CURLISTA Pro 5 IN 1"
+          )}
+        </Typography>
         <Stack direction={"row"} alignItems="center" spacing={2}>
           <Typography variant="body1">
-            <del>$199.99 USD</del>
+            {" "}
+            {isLoading ? (
+              <Skeleton variant="text" width={86} />
+            ) : (
+              <del>$199.99 USD</del>
+            )}
           </Typography>
-          <Typography variant="body1">$99.99 USD</Typography>
-          <Chip className="chip" label="- 40%" />
+          <Typography variant="body1" fontWeight={600}>
+            {isLoading ? <Skeleton variant="text" width={86} /> : "$199.99 USD"}
+          </Typography>
+          {isLoading ? (
+            <Skeleton variant="rounded" width={60} height={32} />
+          ) : (
+            <Chip className="chip" label="- 40%" />
+          )}
         </Stack>
       </Stack>
       <List className="list">
@@ -104,37 +127,58 @@ export default function ProductSummary() {
           <ListItem
             key={v}
             disablePadding
-            className={i === 0 ? "border-top" : i === 4 && "border-bottom"}
+            className={`${
+              i === 0 ? "border-top" : i === 4 && "border-bottom"
+            } ${isLoading && "is-loading"}`}
           >
-            <ListItemIcon>
-              <ReactSVG name={v.icon} width={18} height={18} />
-            </ListItemIcon>
-            <ListItemText primary={v.title} />
+            {isLoading ? (
+              <Skeleton variant="rectangular" width="100%" height={32} />
+            ) : (
+              <>
+                <ListItemIcon>
+                  <ReactSVG name={v.icon} width={18} height={18} />
+                </ListItemIcon>
+                <ListItemText primary={v.title} />
+              </>
+            )}
           </ListItem>
         ))}
       </List>
       <Stack spacing={0.5} mt={2}>
         <Typography variant="body2" color="text.primary" fontWeight={600}>
-          Color
+          {isLoading ? <Skeleton variant="text" width={120} /> : "Color"}
         </Typography>
-        <SizeSinglePicker />
+        <SizeSinglePicker isLoading={isLoading} />
       </Stack>
       <Stack spacing={2}>
         <Stack spacing={1} mt={2}>
           <Typography variant="body2" color="text.primary" fontWeight={600}>
-            Quantity
+            {isLoading ? <Skeleton variant="text" width={120} /> : "Quantity"}
           </Typography>
-          <Incrementer />
+
+          <Incrementer isLoading={isLoading} />
         </Stack>
-        <Button variant="outlined" color="primary" fullWidth>
-          add to cart
-        </Button>
-        <img
-          src="/static/images/account.png"
-          alt="account-payment"
-          width="100%"
-          height={30}
-        />
+        {isLoading ? (
+          <Skeleton variant="rounded" height={40} width="100%" />
+        ) : (
+          <Button variant="outlined" color="primary" fullWidth>
+            add to cart
+          </Button>
+        )}
+        <Stack direction="row" gap={1}>
+          {isLoading ? (
+            Array.from(new Array(5)).map((item, index) => (
+              <Skeleton variant="rounded" width={67} height={28} />
+            ))
+          ) : (
+            <img
+              src="/static/images/account.png"
+              alt="account-payment"
+              width="100%"
+              height={30}
+            />
+          )}
+        </Stack>
       </Stack>
     </RootStyled>
   );
