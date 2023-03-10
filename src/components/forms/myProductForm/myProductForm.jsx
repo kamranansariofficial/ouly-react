@@ -46,7 +46,7 @@ export default function LoginForm() {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        navigate("/");
+        navigate("/dashboard/product");
       }, 3000);
     },
   });

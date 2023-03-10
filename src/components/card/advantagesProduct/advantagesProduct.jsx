@@ -14,6 +14,7 @@ import {
 // components
 import RootStyled from "./styled";
 import ReactSVG from "utils/reactSVG";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   "ALL-IN-ONE DEVICE",
@@ -32,6 +33,7 @@ const iconData = [
 ];
 
 export default function AdvantagesProduct() {
+  const navigate = useNavigate();
   return (
     <RootStyled>
       <CardContent>
@@ -60,7 +62,13 @@ export default function AdvantagesProduct() {
           <Button variant="outlined" size="large" color="secondary" fullWidth>
             back
           </Button>
-          <Button variant="contained" size="large" color="primary" fullWidth>
+          <Button
+            variant="contained"
+            size="large"
+            color="primary"
+            onClick={() => navigate("/editing")}
+            fullWidth
+          >
             Generate
           </Button>
         </Stack>

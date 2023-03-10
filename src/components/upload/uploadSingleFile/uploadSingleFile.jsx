@@ -7,7 +7,7 @@ import { CircularProgress, Box, Typography } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-const DropZoneStyle = styled("div")(({ theme }) => ({
+const DropZoneStyle = styled("div")(({ theme, loading }) => ({
   outline: "none",
   display: "flex",
   overflow: "hidden",
@@ -16,8 +16,7 @@ const DropZoneStyle = styled("div")(({ theme }) => ({
   alignItems: "center",
   flexDirection: "column",
   justifyContent: "center",
-  padding: theme.spacing(5, 0),
-
+  padding: !loading ? theme.spacing(5, 0) : "72px 0",
   transition: theme.transitions.create("padding"),
   height: "100%",
   background: "rgba(243, 242, 255, 0.5)",
@@ -45,6 +44,7 @@ export default function UploadSingleFile({ ...props }) {
 
   return (
     <DropZoneStyle
+      loading={loading}
       {...getRootProps()}
       sx={{
         ...(isDragActive && { opacity: 0.72 }),
