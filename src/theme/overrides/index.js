@@ -27,7 +27,7 @@ import Button from "./Button";
 // import Stepper from './Stepper';
 // import Pickers from './Pickers';
 // import DataGrid from './DataGrid';
-// import Skeleton from './Skeleton';
+import Skeleton from "./Skeleton";
 // import Backdrop from './Backdrop';
 // import Snackbar from './Snackbar';
 // import Progress from './Progress';
@@ -66,7 +66,7 @@ export default function ComponentsOverrides(theme) {
     // Alert(theme),
     // Switch(theme),
     // Select(theme),
-    Button(theme)
+    Button(theme),
     // Rating(theme),
     // Dialog(theme),
     // Avatar(theme),
@@ -79,7 +79,7 @@ export default function ComponentsOverrides(theme) {
     // SvgIcon(theme),
     // Checkbox(theme),
     // DataGrid(theme),
-    // Skeleton(theme),
+    Skeleton(theme)
     // Timeline(theme),
     // TreeView(theme),
     // Backdrop(theme),

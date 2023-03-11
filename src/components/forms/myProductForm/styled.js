@@ -23,5 +23,12 @@ const RootStyled = styled("div")(({ theme }) => ({
     maxWidth: 280,
     width: "100%",
   },
+  "& .grid-preview": {
+    display: "grid",
+    gridTemplateColumns: "auto auto auto auto auto",
+    gridGap: "32px",
+    width: "100%",
+    padding: theme.spacing(4, 0),
+  },
 }));
 export default RootStyled;

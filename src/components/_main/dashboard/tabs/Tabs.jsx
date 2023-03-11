@@ -14,7 +14,7 @@ import {
   ProductInformation,
 } from "components";
 import RootStyled from "./styled";
-export default function Home() {
+export default function Home({ isLoading }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -46,7 +46,7 @@ export default function Home() {
         <TabPanel value={2}>
           <Zoom in={value}>
             <div>
-              <MyProduct />
+              <MyProduct isLoading={isLoading} />
             </div>
           </Zoom>
         </TabPanel>

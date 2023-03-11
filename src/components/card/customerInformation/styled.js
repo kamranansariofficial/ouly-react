@@ -2,10 +2,12 @@
 import { Card } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const RootStyled = styled(Card)(({ theme }) => ({
+const RootStyled = styled(Card)(({ theme, isLoading }) => ({
+  background: isLoading ? "transparent" : theme.palette.background.paper,
+  boxShadow: isLoading ? "none" : "auto",
   "& .avatar-sec": {
     padding: theme.spacing(4),
-    background: theme.palette.background.neutral,
+    background: isLoading ? "transparent" : theme.palette.background.neutral,
     "& .avatar-img": {
       width: 76,
       height: 76,

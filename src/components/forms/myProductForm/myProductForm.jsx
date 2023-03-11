@@ -1,36 +1,52 @@
 // yup
 import * as Yup from "yup";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 // react router dom
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 // formik
 import { useFormik, Form, FormikProvider } from "formik";
 // material
 import {
-  Link,
+  Skeleton,
   Stack,
-  Alert,
-  Checkbox,
-  TextField,
-  FormControlLabel,
   Typography,
   Grid,
-  Card,
-  CardContent,
   Box,
+  TextField,
 } from "@mui/material";
 // mui lab
 import { LoadingButton } from "@mui/lab";
 // components
-import { UploadSingleFile } from "components";
+import { UploadSingleFile, UploadMultipleFile } from "components";
 import RootStyled from "./styled";
 //
 
 // ----------------------------------------------------------------------
 
-export default function LoginForm() {
+export default function MyProductForm({ isLoad }) {
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
+
+  const [state, setstate] = useState({
+    loading: false,
+  });
+
+  const handleDrop = useCallback(
+    (acceptedFiles) => {
+      setstate({ ...state, loading: true });
+      setTimeout(() => {
+        const file = acceptedFiles[0];
+        if (file) {
+          setstate({
+            ...file,
+            loading: false,
+            preview: URL.createObjectURL(file),
+          });
+        }
+      }, 2000);
+    },
+    [state]
+  );
   const LoginSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
     description: Yup.string().required("Short Description is required"),
@@ -59,71 +75,107 @@ export default function LoginForm() {
         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
-              <UploadSingleFile
-                sx={{
-                  height: "100%",
-                  bgcolor: "background.paper",
-                }}
-              />
+              {isLoad ? (
+                <Skeleton variant="rounded" width="100%" height={264} />
+              ) : (
+                <UploadSingleFile
+                  sx={{
+                    height: "100%",
+                    bgcolor: "background.paper",
+                  }}
+                  preview={state.preview}
+                  onDrop={(file) => handleDrop(file)}
+                  loading={state.loading}
+                />
+              )}
             </Grid>
             <Grid item xs={12} md={6}>
               <Stack spacing={3}>
                 <Stack spacing={1}>
                   <Typography variant="body1" fontWeight={600}>
-                    Product Name
+                    {isLoad ? (
+                      <Skeleton variant="text" width={99} />
+                    ) : (
+                      "Product Name"
+                    )}
                   </Typography>
-                  <TextField
-                    fullWidth
-                    autoComplete="name"
-                    type="text"
-                    placeholder="Product Name"
-                    {...getFieldProps("name")}
-                    error={Boolean(touched.name && errors.name)}
-                    helperText={touched.name && errors.name}
-                  />
+                  {isLoad ? (
+                    <Skeleton variant="rounded" height={52} width="100%" />
+                  ) : (
+                    <TextField
+                      fullWidth
+                      autoComplete="name"
+                      type="text"
+                      placeholder="Product Name"
+                      {...getFieldProps("name")}
+                      error={Boolean(touched.name && errors.name)}
+                      helperText={touched.name && errors.name}
+                    />
+                  )}
                 </Stack>
                 <Stack spacing={1}>
                   <Typography variant="body1" fontWeight={600}>
-                    Description of Product
+                    {isLoad ? (
+                      <Skeleton variant="text" width={154} />
+                    ) : (
+                      "Description of Product"
+                    )}
                   </Typography>
-                  <TextField
-                    multiline
-                    className="describe"
-                    rows={4}
-                    fullWidth
-                    autoComplete="describe"
-                    type={"text"}
-                    placeholder="Type Description"
-                    {...getFieldProps("description")}
-                    error={Boolean(touched.description && errors.description)}
-                    helperText={touched.description && errors.description}
-                  />
+                  {isLoad ? (
+                    <Skeleton variant="rounded" height={124} width="100%" />
+                  ) : (
+                    <TextField
+                      multiline
+                      className="describe"
+                      rows={4}
+                      fullWidth
+                      autoComplete="describe"
+                      type={"text"}
+                      placeholder="Type Description"
+                      {...getFieldProps("description")}
+                      error={Boolean(touched.description && errors.description)}
+                      helperText={touched.description && errors.description}
+                    />
+                  )}
                 </Stack>
               </Stack>
             </Grid>
-            <Grid item xs={4} md={3}>
-              <img src="/static/images/myproduct.png" alt="myproduct-img" />
-            </Grid>
-            <Grid item xs={4} md={9}>
-              <Grid container spacing={5}>
-                {[1, 2, 3, 4].map((v) => (
-                  <Grid key={v} item xs={4} md={3}>
-                    <Box className="empty-box"></Box>
-                  </Grid>
+            <Grid item xs={12} md={12}>
+              <Box className="grid-preview">
+                {[1, 2, 3, 4, 5].map((v) => (
+                  <>
+                    {isLoad ? (
+                      <Skeleton variant="rounded" height={127} width={165} />
+                    ) : (
+                      <UploadMultipleFile
+                        sx={{
+                          height: "128px",
+                          bgcolor: "background.paper",
+                        }}
+                        preview={state.preview}
+                        onDrop={(file) => handleDrop(file)}
+                        loading={state.loading}
+                      />
+                    )}
+                  </>
                 ))}
-              </Grid>
+              </Box>
             </Grid>
           </Grid>
           <Box className="loading-btn" mt={3}>
-            <LoadingButton
-              fullWidth
-              size="large"
-              type="submit"
-              variant="contained"
-              loading={isLoading}
-            >
-              Generate
-            </LoadingButton>
+            {isLoad ? (
+              <Skeleton variant="rounded" height={47} width="100%" />
+            ) : (
+              <LoadingButton
+                fullWidth
+                size="large"
+                type="submit"
+                variant="contained"
+                loading={isLoading}
+              >
+                Generate
+              </LoadingButton>
+            )}
           </Box>
         </Form>
       </FormikProvider>

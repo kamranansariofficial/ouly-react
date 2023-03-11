@@ -33,14 +33,25 @@ const DropZoneStyle = styled("div")(({ theme, loading }) => ({
 // ----------------------------------------------------------------------
 
 export default function UploadSingleFile({ ...props }) {
-  const { error, file, sx, onDrop, loading, ...other } = props;
+  const { error, preview, sx, onDrop, loading, ...other } = props;
+  console.log(preview);
+  const {
+    acceptedFiles,
+    getRootProps,
+    getInputProps,
+    isDragActive,
+    isDragReject,
+  } = useDropzone({
+    multiple: false,
+    onDrop,
+    ...other,
+  });
 
-  const { getRootProps, getInputProps, isDragActive, isDragReject } =
-    useDropzone({
-      multiple: false,
-      onDrop,
-      ...other,
-    });
+  const files = acceptedFiles.map((file) => (
+    <Typography variant="body1" textAlign="center" key={file.path}>
+      {file.path} - {file.size} bytes
+    </Typography>
+  ));
 
   return (
     <DropZoneStyle
@@ -153,14 +164,15 @@ export default function UploadSingleFile({ ...props }) {
             </svg>
             Drag an image here or <span>upload a file</span>
           </Typography>
+          {files}
         </Box>
       )}
 
-      {file && (
+      {preview && (
         <Box
           component="img"
           alt="file preview"
-          src={!file.preview ? file.url : file.preview}
+          src={preview}
           sx={{
             top: 8,
             borderRadius: 1,
@@ -168,6 +180,7 @@ export default function UploadSingleFile({ ...props }) {
             position: "absolute",
             width: "calc(100% - 16px)",
             height: "calc(100% - 16px)",
+            objectFit: "cover",
             backgroundColor: "background.paper",
           }}
         />

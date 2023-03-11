@@ -6,6 +6,8 @@ import IconButton from "@mui/material/IconButton";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 // components
 import { UploadSingleFile } from "components";
+// utils
+import ReactSVG from "utils/reactSVG";
 
 export default function Upload({ ...props }) {
   const { onClose } = props;
@@ -51,7 +53,10 @@ export default function Upload({ ...props }) {
         </IconButton>
       </Typography>
       <UploadSingleFile
-        file={state.cover}
+        sx={{
+          height: 146,
+        }}
+        preview={state.preview}
         onDrop={(file) => handleDrop(file)}
         loading={state.loading}
       />

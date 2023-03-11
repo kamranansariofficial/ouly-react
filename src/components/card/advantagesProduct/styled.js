@@ -10,6 +10,18 @@ const RootStyled = styled(Card)(({ theme }) => ({
   margin: "0 auto",
   "& .MuiCardContent-root": {
     padding: theme.spacing(4),
+    "& .describe": {
+      marginBottom: theme.spacing(4),
+      "& .MuiButtonBase-root": {
+        height: 297,
+      },
+    },
+    "& .MuiCollapse-hidden ": {
+      display: "none",
+    },
+    "& .MuiCollapse-wrapperInner": {
+      width: "100%",
+    },
     "& .card-main": {
       background: theme.palette.background.neutral,
       borderRadius: "8px",
@@ -19,6 +31,7 @@ const RootStyled = styled(Card)(({ theme }) => ({
       paddingLeft: theme.spacing(3),
       paddingRight: theme.spacing(3),
       marginBottom: theme.spacing(4),
+      position: "relative",
 
       "& .MuiListItem-root": {
         marginBottom: theme.spacing(2),
@@ -46,6 +59,49 @@ const RootStyled = styled(Card)(({ theme }) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+      },
+      "& .card-icon-feild": {
+        "& .MuiInputBase-root": {
+          height: 158,
+          width: 148,
+          borderRadius: "18px",
+          background: theme.palette.background.paper,
+          border: "1px solid #EBE8FF",
+        },
+      },
+      "& .editable-box1": {
+        position: "absolute",
+        top: 8,
+        right: -23,
+        height: "calc(100% - 50px)",
+        borderLeft: `2px solid ${theme.palette.primary.main}`,
+        "& .MuiButtonBase-root": {
+          borderRadius: 0,
+          height: 22,
+          width: 22,
+          marginBottom: theme.spacing(0.2),
+          background: theme.palette.primary.main,
+          "& >div >div": {
+            display: "flex",
+          },
+        },
+      },
+    },
+  },
+  "& .editable-box": {
+    position: "absolute",
+    top: 8,
+    right: -23,
+    height: "calc(100% - 80px)",
+    borderLeft: `2px solid ${theme.palette.primary.main}`,
+    "& .MuiButtonBase-root": {
+      borderRadius: 0,
+      height: 22,
+      width: 22,
+      marginBottom: theme.spacing(0.2),
+      background: theme.palette.primary.main,
+      "& >div >div": {
+        display: "flex",
       },
     },
   },

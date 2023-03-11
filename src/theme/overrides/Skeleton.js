@@ -4,14 +4,14 @@ export default function Skeleton(theme) {
   return {
     MuiSkeleton: {
       defaultProps: {
-        animation: 'wave'
+        animation: "wave",
       },
 
       styleOverrides: {
         root: {
-          backgroundColor: theme.palette.background.neutral
-        }
-      }
-    }
+          backgroundColor: "rgba(237, 236, 245, 0.5)",
+        },
+      },
+    },
   };
 }

@@ -19,6 +19,28 @@ const RootStyled = styled("div")(({ theme }) => ({
           border: "1px solid rgba(99, 91, 255, 0.12)",
         },
       },
+      "&.active": {
+        "& .MuiOutlinedInput-root": {
+          color: "#6B7280",
+        },
+      },
+    },
+    "& .editable-box": {
+      position: "absolute",
+      top: 8,
+      right: -23,
+      height: "calc(100% - 16px)",
+      borderLeft: `2px solid ${theme.palette.primary.main}`,
+      "& .MuiButtonBase-root": {
+        borderRadius: 0,
+        height: 22,
+        width: 22,
+        marginBottom: theme.spacing(0.2),
+        background: theme.palette.primary.main,
+        "& >div >div": {
+          display: "flex",
+        },
+      },
     },
   },
   "& .width-box": {
