@@ -17,7 +17,7 @@ export default function CustomerProducts({ isLoading }) {
           />
           <Grid container spacing={2}>
             {[1, 2, 3].map((v) => (
-              <Grid key={v} item lg={4}>
+              <Grid key={v} sm={4} lg={4}>
                 <Stack spacing={1}>
                   <Skeleton
                     variant="rounded"

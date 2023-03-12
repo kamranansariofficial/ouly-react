@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 const RootStyled = styled("div")(({ theme }) => ({
+  position: "relative",
   "& .MuiTabs-root": {
     minHeight: 0,
     "& .MuiTabs-scroller": {
@@ -29,6 +30,22 @@ const RootStyled = styled("div")(({ theme }) => ({
       span: {
         display: "none",
       },
+    },
+  },
+  "& .icon-btn": {
+    height: 20,
+    width: 20,
+    background: "#EFF6FF",
+    border: "1px solid #D0D5DD",
+    position: "absolute",
+    top: -7,
+    right: 0,
+    svg: {
+      height: 10,
+      width: 10,
+    },
+    "&:hover": {
+      background: "#EFF6FF",
     },
   },
 }));

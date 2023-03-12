@@ -88,9 +88,9 @@ const Incrementer = ({ isLoading }) => {
   );
 };
 
-export default function ProductSummary({ isLoading }) {
+export default function ProductSummary({ isLoading, viewPort }) {
   return (
-    <RootStyled>
+    <RootStyled isLoading={isLoading}>
       <Stack spacing={0.5}>
         <Typography variant="body2">
           {isLoading ? <Skeleton variant="text" width={68} /> : "CURLISTAR"}
@@ -103,7 +103,12 @@ export default function ProductSummary({ isLoading }) {
             "CURLISTA Pro 5 IN 1"
           )}
         </Typography>
-        <Stack direction={"row"} alignItems="center" spacing={2}>
+        <Stack
+          direction={"row"}
+          justifyContent={{ xs: "space-between", md: "start" }}
+          alignItems="center"
+          spacing={2}
+        >
           <Typography variant="body1">
             {" "}
             {isLoading ? (
@@ -148,7 +153,7 @@ export default function ProductSummary({ isLoading }) {
         <Typography variant="body2" color="text.primary" fontWeight={600}>
           {isLoading ? <Skeleton variant="text" width={120} /> : "Color"}
         </Typography>
-        <SizeSinglePicker isLoading={isLoading} />
+        <SizeSinglePicker isLoading={isLoading} viewPort={viewPort} />
       </Stack>
       <Stack spacing={2}>
         <Stack spacing={1} mt={2}>
@@ -175,7 +180,7 @@ export default function ProductSummary({ isLoading }) {
               src="/static/images/account.png"
               alt="account-payment"
               width="100%"
-              height={30}
+              height={{ xs: 30, sm: 50 }}
             />
           )}
         </Stack>

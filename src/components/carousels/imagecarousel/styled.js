@@ -4,7 +4,6 @@ const RootStyled = styled("div")(({ theme }) => ({
   position: "relative",
   overflow: "hidden",
   paddingTop: "100%",
-  background: theme.palette.background.default,
   borderRadius: 0,
   "& .motion-dev": {
     position: "absolute",
@@ -41,20 +40,23 @@ const RootStyled = styled("div")(({ theme }) => ({
     zIndex: 22,
     "& .controls-wrapper-btn": {
       position: "absolute",
-      top: 0,
-      lef: 0,
-      height: "100%",
-      width: "100%",
+      top: "50%",
+      transform: "translatey(-50%)",
+      zIndex: 22,
       marginTop: "5px",
-      "& button": {
-        minWidth: 10,
-        height: 75,
-        border: `1px solid ${theme.palette.divider}`,
-        background: theme.palette.background.paper,
-        svg: {
-          fontSize: 10,
-          color: theme.palette.common.black,
-        },
+      minWidth: 10,
+      height: 75,
+      border: `1px solid ${theme.palette.divider}`,
+      background: theme.palette.background.paper,
+      svg: {
+        fontSize: 10,
+        color: theme.palette.common.black,
+      },
+      "&.left": {
+        left: 0,
+      },
+      "&.right": {
+        right: 0,
       },
     },
     "& .controls-button": {
@@ -71,6 +73,13 @@ const RootStyled = styled("div")(({ theme }) => ({
         img: {
           border: `2px solid ${theme.palette.primary.main}`,
         },
+      },
+    },
+    [theme.breakpoints.down("md")]: {
+      paddingTop: theme.spacing(2),
+      "& .controls-wrapper-btn": {
+        marginTop: 0,
+        paddingBottom: 7,
       },
     },
   },

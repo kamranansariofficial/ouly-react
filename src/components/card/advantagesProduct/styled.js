@@ -2,7 +2,7 @@
 import { Card } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const RootStyled = styled(Card)(({ theme }) => ({
+const RootStyled = styled(Card)(({ theme, isLoading }) => ({
   maxWidth: 950,
   display: "flex",
   gap: "16px",
@@ -23,10 +23,10 @@ const RootStyled = styled(Card)(({ theme }) => ({
       width: "100%",
     },
     "& .card-main": {
-      background: theme.palette.background.neutral,
+      background: isLoading ? "transparent" : theme.palette.background.neutral,
+      border: isLoading ? "none" : "1px solid #EBE8FF",
       borderRadius: "8px",
       boxShadow: "none",
-      border: "1px solid #EBE8FF",
       paddingTop: theme.spacing(3),
       paddingLeft: theme.spacing(3),
       paddingRight: theme.spacing(3),
@@ -70,6 +70,7 @@ const RootStyled = styled(Card)(({ theme }) => ({
         },
       },
       "& .editable-box1": {
+        display: isLoading ? "none" : "block",
         position: "absolute",
         top: 8,
         right: -23,
@@ -89,6 +90,7 @@ const RootStyled = styled(Card)(({ theme }) => ({
     },
   },
   "& .editable-box": {
+    display: isLoading ? "none" : "block",
     position: "absolute",
     top: 8,
     right: -23,

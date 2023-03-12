@@ -48,8 +48,8 @@ export default function MyProductForm({ isLoad }) {
     [state]
   );
   const LoginSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    description: Yup.string().required("Short Description is required"),
+    // name: Yup.string().required("Name is required"),
+    // description: Yup.string().required("Short Description is required"),
   });
 
   const formik = useFormik({
@@ -63,7 +63,7 @@ export default function MyProductForm({ isLoad }) {
       setTimeout(() => {
         setLoading(false);
         navigate("/dashboard/product");
-      }, 3000);
+      }, 1500);
     },
   });
 
@@ -107,9 +107,9 @@ export default function MyProductForm({ isLoad }) {
                       autoComplete="name"
                       type="text"
                       placeholder="Product Name"
-                      {...getFieldProps("name")}
-                      error={Boolean(touched.name && errors.name)}
-                      helperText={touched.name && errors.name}
+                      // {...getFieldProps("name")}
+                      // error={Boolean(touched.name && errors.name)}
+                      // helperText={touched.name && errors.name}
                     />
                   )}
                 </Stack>
@@ -132,9 +132,9 @@ export default function MyProductForm({ isLoad }) {
                       autoComplete="describe"
                       type={"text"}
                       placeholder="Type Description"
-                      {...getFieldProps("description")}
-                      error={Boolean(touched.description && errors.description)}
-                      helperText={touched.description && errors.description}
+                      // {...getFieldProps("description")}
+                      // error={Boolean(touched.description && errors.description)}
+                      // helperText={touched.description && errors.description}
                     />
                   )}
                 </Stack>

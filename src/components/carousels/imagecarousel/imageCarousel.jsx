@@ -75,8 +75,8 @@ function CarouselItem({ ...props }) {
         <img
           src={item.src}
           objectFit="cover"
-          height={385}
           width="100%"
+          height="100%"
           alt="hero-carousel"
         />
       )}
@@ -136,34 +136,28 @@ export default function ImageCarousel({ isLoading }) {
         direction="row"
         justifyContent={product.length < 6 ? "center" : "left"}
         className="controls-wrapper"
+        alignItems={{ xs: "end", md: "center" }}
       >
-        <Stack
-          direction="row"
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          spacing={1}
-          className="controls-wrapper-btn"
-        >
-          {!isLoading && (
-            <>
-              {" "}
-              <Button
-                onClick={() => {
-                  setPage([page - 1, page - 1]);
-                }}
-              >
-                <ArrowBackIosIcon />
-              </Button>
-              <Button
-                onClick={() => {
-                  setPage([page + 1, page + 1]);
-                }}
-              >
-                <ArrowForwardIosIcon />
-              </Button>
-            </>
-          )}
-        </Stack>
+        {!isLoading && (
+          <>
+            <Button
+              className="controls-wrapper-btn left"
+              onClick={() => {
+                setPage([page - 1, page - 1]);
+              }}
+            >
+              <ArrowBackIosIcon />
+            </Button>
+            <Button
+              className="controls-wrapper-btn right"
+              onClick={() => {
+                setPage([page + 1, page + 1]);
+              }}
+            >
+              <ArrowForwardIosIcon />
+            </Button>
+          </>
+        )}
         {product.map((item, i) => (
           <Box
             key={Math.random()}

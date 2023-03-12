@@ -63,7 +63,6 @@ export default function EditBar() {
           </Button>
         </Stack>
       </Toolbar>
-      <Divider />
     </RootStyled>
   );
 }

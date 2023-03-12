@@ -1,12 +1,12 @@
 // material
 import { styled } from "@mui/material/styles";
 
-const RootStyled = styled("div")(({ theme }) => ({
+const RootStyled = styled("div")(({ theme, isLoading }) => ({
   "& .paper-card": {
-    background: theme.palette.background.neutral,
+    background: isLoading ? "transparent" : theme.palette.background.neutral,
     borderRadius: "8px",
     boxShadow: "none",
-    border: "1px solid #EBE8FF",
+    border: isLoading ? "none" : "1px solid #EBE8FF",
     marginBottom: theme.spacing(3),
     "& .country-select": {
       background: `${theme.palette.background.paper} !important`,

@@ -40,7 +40,7 @@ export default function Router() {
         { element: <Navigate to="/dashboard/" replace /> },
         { path: "", element: <Dashboard /> },
         { path: "product", element: <MyProduct /> },
-        { path: "edit-product", element: <EditProduct /> },
+        { path: "edit-product", element: <AddProduct /> },
         { path: "customer-information", element: <CustomerInformation /> },
         { path: "advantages-product", element: <AdvantagesProduct /> },
       ],
@@ -48,7 +48,10 @@ export default function Router() {
     {
       path: "editing",
       element: <EditLayout />,
-      children: [{ path: "", element: <SearchResultPage /> }],
+      children: [
+        { path: "", element: <SearchResultPage /> },
+        { path: "edit-page", element: <EditPage /> },
+      ],
     },
   ]);
 }
@@ -58,10 +61,11 @@ export default function Router() {
 // Authentication
 const Login = Loadable(lazy(() => import("pages/auth/login")));
 const SignUp = Loadable(lazy(() => import("pages/auth/signup")));
-const Dashboard = Loadable(lazy(() => import("pages/home")));
+const Dashboard = Loadable(lazy(() => import("pages")));
 const SearchResultPage = Loadable(lazy(() => import("pages/searchResultPage")));
 const MyProduct = Loadable(lazy(() => import("pages/productInformation")));
-const EditProduct = Loadable(lazy(() => import("pages/editProduct")));
+const AddProduct = Loadable(lazy(() => import("pages/addProduct")));
+const EditPage = Loadable(lazy(() => import("pages/editPage")));
 const AdvantagesProduct = Loadable(
   lazy(() => import("pages/advantagesProduct"))
 );

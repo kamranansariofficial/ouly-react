@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { AdvantagesProduct } from "components";
-export default function AdvantagesProducts() {
+// components
+import { AddProductCard } from "components";
+export default function EditProduct() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -10,7 +11,7 @@ export default function AdvantagesProducts() {
 
   return (
     <div>
-      <AdvantagesProduct isLoading={loading} />
+      <AddProductCard isLoading={loading} />
     </div>
   );
 }

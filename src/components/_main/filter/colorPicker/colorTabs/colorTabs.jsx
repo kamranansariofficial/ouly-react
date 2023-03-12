@@ -3,7 +3,8 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import RootStyled from "./styled";
-
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import IconButton from "@mui/material/IconButton";
 export default function ColorTabs() {
   const [value, setValue] = React.useState(1);
 
@@ -24,6 +25,9 @@ export default function ColorTabs() {
         <Tab value={2} className="primary-dark" />
         <Tab value={3} className="primary" />
       </Tabs>
+      <IconButton size="small" className="icon-btn">
+        <CloseRoundedIcon />
+      </IconButton>
     </RootStyled>
   );
 }

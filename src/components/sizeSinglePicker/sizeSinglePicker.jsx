@@ -19,10 +19,15 @@ function IconColor({ ...props }) {
   );
 }
 
-export default function SizeSinglePicker({ isLoading }) {
+export default function SizeSinglePicker({ isLoading, viewPort }) {
   const [state, setstate] = useState("Gold");
   return (
-    <RootStyled value={state} onChange={(e) => setstate(e.target.value)} row>
+    <RootStyled
+      viewPort={viewPort}
+      value={state}
+      onChange={(e) => setstate(e.target.value)}
+      row
+    >
       {color?.map((color) => {
         return isLoading ? (
           <Skeleton variant="rounded" width={66} height={30} sx={{ mr: 1 }} />

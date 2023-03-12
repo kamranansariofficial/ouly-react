@@ -3,13 +3,13 @@ import React from "react";
 import { CardContent } from "@mui/material";
 // components
 import RootStyled from "./styled";
-import { EditProductForm } from "components";
+import { AddProductForm } from "components";
 
-export default function EditProductCard() {
+export default function EditProductCard({ isLoading }) {
   return (
-    <RootStyled>
+    <RootStyled isLoading={isLoading}>
       <CardContent>
-        <EditProductForm />
+        <AddProductForm isLoading={isLoading} />
       </CardContent>
     </RootStyled>
   );

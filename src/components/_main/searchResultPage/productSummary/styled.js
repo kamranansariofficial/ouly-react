@@ -1,13 +1,14 @@
 import { styled } from "@mui/material/styles";
 
-const RootStyled = styled("div")(({ theme }) => ({
+const RootStyled = styled("div")(({ theme, isLoading }) => ({
   "& .chip": {
     fontWeight: 600,
   },
 
   "& .list": {
     "& .MuiListItem-root": {
-      background: "transparent",
+      background: isLoading ? "transparent" : "rgba(239, 238, 254, 0.7)",
+      borderBottom: isLoading ? "" : "1px solid #fff",
       height: "35px",
       paddingLeft: theme.spacing(1.4),
       paddingRight: theme.spacing(1.4),

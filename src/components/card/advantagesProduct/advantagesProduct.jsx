@@ -13,6 +13,7 @@ import {
   IconButton,
   TextField,
   Collapse,
+  Skeleton,
 } from "@mui/material";
 // components
 import RootStyled from "./styled";
@@ -37,12 +38,12 @@ const iconData = [
   "comb2",
 ];
 
-export default function AdvantagesProduct() {
+export default function AdvantagesProduct({ isLoading }) {
   const [state, setState] = React.useState(false);
   const [state1, setState1] = React.useState(false);
   const navigate = useNavigate();
   return (
-    <RootStyled>
+    <RootStyled isLoading={isLoading}>
       <CardContent>
         <Box position={"relative"}>
           <Collapse in={state}>
@@ -66,9 +67,26 @@ export default function AdvantagesProduct() {
                 {data.map((v) => (
                   <ListItem key={v} disablePadding>
                     <ListItemIcon>
-                      <TripOriginRoundedIcon />
+                      {isLoading ? (
+                        <Skeleton
+                          variant="circular"
+                          height={17}
+                          width={17}
+                          sx={{ mb: 2 }}
+                        />
+                      ) : (
+                        <TripOriginRoundedIcon />
+                      )}
                     </ListItemIcon>
-                    <ListItemText primary={v} />
+                    {isLoading ? (
+                      <Skeleton
+                        variant="text"
+                        sx={{ fontSize: 18, mb: 2 }}
+                        width={250}
+                      />
+                    ) : (
+                      <ListItemText primary={v} />
+                    )}
                   </ListItem>
                 ))}
               </List>
@@ -107,9 +125,15 @@ export default function AdvantagesProduct() {
                   />
                 </Collapse>
                 <Collapse in={!state1} orientation="horizontal">
-                  <Box className="card-icon">
-                    <img src={`/static/icons/${v}.svg`} alt="icon-img" />
-                  </Box>
+                  <>
+                    {isLoading ? (
+                      <Skeleton variant="rounded" height={157} width={147} />
+                    ) : (
+                      <Box className="card-icon">
+                        <img src={`/static/icons/${v}.svg`} alt="icon-img" />
+                      </Box>
+                    )}
+                  </>
                 </Collapse>
               </>
             ))}
@@ -126,18 +150,32 @@ export default function AdvantagesProduct() {
           </Box>
         </Box>
         <Stack spacing={3} direction="row">
-          <Button variant="outlined" size="large" color="secondary" fullWidth>
-            back
-          </Button>
-          <Button
-            variant="contained"
-            size="large"
-            color="primary"
-            onClick={() => navigate("/editing")}
-            fullWidth
-          >
-            Generate
-          </Button>
+          {isLoading ? (
+            <Skeleton variant="rounded" width="100%" height={48} />
+          ) : (
+            <Button
+              variant="outlined"
+              size="large"
+              color="secondary"
+              onClick={() => navigate("/dashboard/edit-product")}
+              fullWidth
+            >
+              back
+            </Button>
+          )}
+          {isLoading ? (
+            <Skeleton variant="rounded" width="100%" height={48} />
+          ) : (
+            <Button
+              variant="contained"
+              size="large"
+              color="primary"
+              onClick={() => navigate("/editing")}
+              fullWidth
+            >
+              Generate
+            </Button>
+          )}
         </Stack>
       </CardContent>
     </RootStyled>

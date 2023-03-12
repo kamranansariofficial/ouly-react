@@ -28,7 +28,7 @@ export default function Blog({ isLoading }) {
       </Typography>
       <Grid container spacing={2}>
         {[1, 2, 3].map((v) => (
-          <Grid key={v} item lg={4}>
+          <Grid key={v} item sm={6} lg={4}>
             <Box textAlign={"center"}>
               {isLoading ? (
                 <Skeleton

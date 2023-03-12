@@ -1,15 +1,16 @@
 import { styled, alpha } from "@mui/material/styles";
 import RadioGroup from "@mui/material/RadioGroup";
 
-const RootStyled = styled(RadioGroup)(({ theme }) => ({
+const RootStyled = styled(RadioGroup)(({ theme, viewPort }) => ({
   "& .radio-wrapper": {
     padding: 0,
-    marginRight: theme.spacing(1),
+    marginRight: viewPort === "mobile" ? theme.spacing(0.5) : theme.spacing(1),
     color: "transparent",
     "&:hover": { opacity: 0.72 },
     "& .icon-color": {
       height: 30,
-      padding: theme.spacing(0, 2.5),
+      padding:
+        viewPort === "mobile" ? theme.spacing(0, 2) : theme.spacing(0, 2.5),
       display: "flex",
       borderRadius: "8px",
       position: "relative",
@@ -26,6 +27,12 @@ const RootStyled = styled(RadioGroup)(({ theme }) => ({
           fontWeight: 600,
           color: "#fff",
         },
+      },
+    },
+    [theme.breakpoints.down("md")]: {
+      marginRight: theme.spacing(0.5),
+      "& .icon-color": {
+        padding: theme.spacing(0, 2),
       },
     },
   },

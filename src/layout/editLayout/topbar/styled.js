@@ -5,6 +5,8 @@ const RootStyled = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
   "& .toolbar": {
     justifyContent: "space-between",
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    boxShadow: "none",
     "& .divider": {
       height: 36,
       marginTop: "auto",
