@@ -66,10 +66,12 @@ const swipePower = (offset, velocity) => {
 
 // ----------------------------------------------------------------------
 function CarouselItem({ ...props }) {
-  const { item, index, setPage, isLoading, onClick, open } = props;
+  const { item, isEditMode, isLoading, onClick, open } = props;
   return (
     <div
-      className={`slide-wrapper ${open === null ? "" : "active"}`}
+      className={`slide-wrapper ${
+        isEditMode && open === "product-image" && "active"
+      }`}
       onClick={() => onClick("product-image")}
     >
       {isLoading || !item ? (
@@ -84,31 +86,17 @@ function CarouselItem({ ...props }) {
         />
       )}
       {!isLoading && <Box className="bg-overlay" />}
-      {open === null ? (
-        ""
-      ) : (
-        <Stack direction="row" className="edit-btn" spacing={0.5}>
-          <Button variant="contained">
-            <ReactSvg name="image-add" width={15} height={15} sx={{ mr: 1 }} />
-            Image Avec texte
-          </Button>
-          <Button variant="contained" className="setting-icon">
-            <ReactSvg
-              name="setting"
-              width={12}
-              height={12}
-              sx={{ "& >div": { display: "flex" } }}
-            />
-          </Button>
-        </Stack>
-      )}
     </div>
   );
 }
 
-export default function ImageCarousel({ isLoading, onClick, open }) {
+export default function ImageCarousel({
+  isLoading,
+  onClick,
+  open,
+  isEditMode,
+}) {
   const [[page, direction], setPage] = useState([0, 0]);
-  const [page1, setPage1] = useState(0);
   const imageIndex = Math.abs(page % product?.length);
 
   const paginate = (newDirection) => {
@@ -152,9 +140,11 @@ export default function ImageCarousel({ isLoading, onClick, open }) {
             setPage={setPage}
             onClick={onClick}
             open={open}
+            isEditMode={isEditMode}
           />
         </motion.div>
       </AnimatePresence>
+
       <Stack
         direction="row"
         justifyContent={product.length < 6 ? "center" : "left"}

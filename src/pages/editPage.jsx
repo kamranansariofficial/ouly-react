@@ -30,6 +30,7 @@ export default function EditPage() {
         isLoading={loading}
         onClick={(val) => setOpen(val)}
         open={open}
+        isEditMode
       />
 
       <RightSidebar open={open} />

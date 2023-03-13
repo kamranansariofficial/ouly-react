@@ -36,7 +36,12 @@ export default function SearchResultPage() {
               variant="outlined"
               size="large"
               color="secondary"
-              sx={{ bgcolor: "#fff" }}
+              sx={{
+                bgcolor: "#fff",
+                "&:hover": {
+                  bgcolor: "#fff",
+                },
+              }}
               onClick={() => navigate("/editing/edit-page")}
               fullWidth
             >

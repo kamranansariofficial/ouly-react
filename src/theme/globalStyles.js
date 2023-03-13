@@ -110,6 +110,37 @@ export default function GlobalStyles() {
             width: "100%",
           },
         },
+        ".edit-btn": {
+          position: "absolute",
+          top: 14,
+          left: 32,
+          zIndex: 1000,
+          "& .title-top": {
+            height: 19,
+            fontSize: "11px",
+            background: theme.palette.primary.main,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: theme.palette.common.white,
+            padding: theme.spacing(0, 1),
+            svg: {
+              path: {
+                fill: "#fff",
+              },
+            },
+          },
+          "& .setting-btn": {
+            width: 28,
+            height: 19,
+            marginLeft: 2,
+            background: theme.palette.primary.main,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+          },
+        },
       }}
     />
   );

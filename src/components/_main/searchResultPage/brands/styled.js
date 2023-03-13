@@ -4,9 +4,22 @@ const RootStyled = styled("div")(({ theme, isLoading }) => ({
   background: isLoading ? "" : "#FBFBFE",
   padding: theme.spacing(3),
   margin: theme.spacing(3.5, 0),
-  "& .MuiStack-root": {
+  border: `1px solid transparent`,
+
+  "&.active": {
+    border: `1px solid ${theme.palette.primary.main}`,
+  },
+  "& .brands-wrapper": {
+    border: `1px solid transparent`,
     borderTop: "1px solid #f2f5f7",
     borderBottom: "1px solid #f2f5f7",
+    "&.active": {
+      border: `1px solid ${theme.palette.primary.main}`,
+    },
+  },
+
+  "& .active": {
+    border: `1px solid ${theme.palette.primary.main}`,
   },
 }));
 export default RootStyled;

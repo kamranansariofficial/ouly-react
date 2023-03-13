@@ -13,7 +13,7 @@ const RootStyled = styled(Drawer)(({ theme }) => ({
     boxShadow: "none",
   },
   "& .MuiBackdrop-root": {
-    background: "none",
+    display: "none",
   },
 }));
 

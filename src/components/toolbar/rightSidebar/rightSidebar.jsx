@@ -13,7 +13,6 @@ export default function TemporaryDrawer({ open }) {
   return (
     <Box position={"relative"} zIndex={9999}>
       <React.Fragment>
-        {/* <Button onClick={toggleDrawer("right", true)}>Right</Button> */}
         <RootStyled
           anchor={"right"}
           open={Boolean(open)}
@@ -22,11 +21,7 @@ export default function TemporaryDrawer({ open }) {
           <Toolbar className="toolbar" />
           <Toolbar className="toolbar" />
           <Toolbar className="toolbar" />
-          <Box
-            role="presentation"
-            // onClick={toggleDrawer("right", false)}
-            // onKeyDown={toggleDrawer("right", false)}
-          >
+          <Box role="presentation">
             <EditHeading />
           </Box>
         </RootStyled>

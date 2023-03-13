@@ -20,6 +20,7 @@ const RootStyled = styled("div")(({ theme }) => ({
     img: {
       borderRadius: "8px",
       objectPosition: "center",
+      cursor: "pointer",
       border: `1px solid ${theme.palette.divider}`,
       ...(theme.direction === "rtl" && {
         "-webkit-transform": "scaleX(-1)",
@@ -29,23 +30,11 @@ const RootStyled = styled("div")(({ theme }) => ({
     "&.active": {
       img: {
         border: `1px solid ${theme.palette.primary.main} !important`,
-        borderRadius: 0,
-      },
-    },
-    "& .edit-btn": {
-      position: "absolute",
-      top: 0,
-      button: {
-        height: 19,
-        borderRadius: 0,
-        fontSize: "11px",
-        minWidth: 28,
-      },
-      "& .setting-icon": {
-        width: 28,
+        borderRadius: 4,
       },
     },
   },
+
   "& .bg-overlay": {
     top: 0,
     width: "100%",

@@ -1,6 +1,6 @@
 import React from "react";
 // material
-import { Skeleton, Stack } from "@mui/material";
+import { Skeleton, Stack, Box } from "@mui/material";
 // utils
 import ReactSVG from "utils/reactSVG";
 // components
@@ -15,9 +15,16 @@ const companyLogo = [
   "fedex",
 ];
 
-export default function Brands({ isLoading }) {
+export default function Brands({ isLoading, onClick, open }) {
   return (
-    <RootStyled isLoading={isLoading}>
+    <RootStyled
+      isLoading={isLoading}
+      onClick={(e) => {
+        e.stopPropagation();
+        onClick("brands-root");
+      }}
+      className={open === "brands-root" && "active"}
+    >
       {isLoading ? (
         <Stack direction="row" justifyContent="center" spacing={5} py={2}>
           {companyLogo.map((v) => (
@@ -25,9 +32,27 @@ export default function Brands({ isLoading }) {
           ))}
         </Stack>
       ) : (
-        <Stack direction="row" justifyContent="center" spacing={5} py={1}>
-          {companyLogo.map((v) => (
-            <ReactSVG key={v} name={v} width="60px" height="50px" />
+        <Stack
+          direction="row"
+          justifyContent="center"
+          spacing={5}
+          py={1}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClick("brands-wrapper");
+          }}
+          className={`brands-wrapper ${open === "brands-wrapper" && "active"}`}
+        >
+          {companyLogo.map((v, i) => (
+            <Box
+              onClick={(e) => {
+                e.stopPropagation();
+                onClick(`brands-wrapper-${i}`);
+              }}
+              className={open === `brands-wrapper-${i}` && "active"}
+            >
+              <ReactSVG key={v} name={v} width="60px" height="50px" />
+            </Box>
           ))}
         </Stack>
       )}
