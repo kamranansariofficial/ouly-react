@@ -5,7 +5,12 @@ const RootStyled = styled("div")(({ theme, isLoading }) => ({
   padding: theme.spacing(3),
   margin: theme.spacing(3.5, 0),
   border: `1px solid transparent`,
-
+  position: "relative",
+  "& .edit-btn": {
+    width: "calc(100% + 2px)",
+    left: -1,
+    top: -19,
+  },
   "&.active": {
     border: `1px solid ${theme.palette.primary.main}`,
   },
@@ -17,9 +22,12 @@ const RootStyled = styled("div")(({ theme, isLoading }) => ({
       border: `1px solid ${theme.palette.primary.main}`,
     },
   },
-
-  "& .active": {
-    border: `1px solid ${theme.palette.primary.main}`,
+  "& .logo-wrapper": {
+    border: `1px solid transparent`,
+    padding: theme.spacing(1, 2),
+    "&.active": {
+      border: `1px solid ${theme.palette.primary.main}`,
+    },
   },
 }));
 export default RootStyled;
