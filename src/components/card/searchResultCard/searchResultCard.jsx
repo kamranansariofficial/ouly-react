@@ -14,7 +14,12 @@ import {
 } from "components";
 import RootStyled from "./styled";
 
-export default function SearchResultCard({ isLoading, viewPort }) {
+export default function SearchResultCard({
+  isLoading,
+  viewPort,
+  onClick,
+  open,
+}) {
   return (
     <RootStyled isLoading={isLoading} viewPort={viewPort}>
       <CardContent>
@@ -26,7 +31,11 @@ export default function SearchResultCard({ isLoading, viewPort }) {
             md={12}
             lg={viewPort === "desktop" ? 6 : 12}
           >
-            <ImageCarousel isLoading={isLoading} />
+            <ImageCarousel
+              isLoading={isLoading}
+              onClick={onClick}
+              open={open}
+            />
           </Grid>
           <Grid
             item

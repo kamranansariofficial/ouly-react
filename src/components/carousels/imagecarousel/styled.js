@@ -26,6 +26,25 @@ const RootStyled = styled("div")(({ theme }) => ({
         transform: "scaleX(-1)",
       }),
     },
+    "&.active": {
+      img: {
+        border: `1px solid ${theme.palette.primary.main} !important`,
+        borderRadius: 0,
+      },
+    },
+    "& .edit-btn": {
+      position: "absolute",
+      top: 0,
+      button: {
+        height: 19,
+        borderRadius: 0,
+        fontSize: "11px",
+        minWidth: 28,
+      },
+      "& .setting-icon": {
+        width: 28,
+      },
+    },
   },
   "& .bg-overlay": {
     top: 0,

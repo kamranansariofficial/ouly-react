@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // styles override
 import RootStyled from "./styled";
+import ReactSvg from "utils/reactSVG";
 
 const product = [
   {
@@ -65,10 +66,12 @@ const swipePower = (offset, velocity) => {
 
 // ----------------------------------------------------------------------
 function CarouselItem({ ...props }) {
-  const { item, index, setPage, isLoading } = props;
-
+  const { item, index, setPage, isLoading, onClick, open } = props;
   return (
-    <div className="slide-wrapper">
+    <div
+      className={`slide-wrapper ${open === null ? "" : "active"}`}
+      onClick={() => onClick("product-image")}
+    >
       {isLoading || !item ? (
         <Skeleton variant="rounded" height={385} width="100%" />
       ) : (
@@ -81,11 +84,29 @@ function CarouselItem({ ...props }) {
         />
       )}
       {!isLoading && <Box className="bg-overlay" />}
+      {open === null ? (
+        ""
+      ) : (
+        <Stack direction="row" className="edit-btn" spacing={0.5}>
+          <Button variant="contained">
+            <ReactSvg name="image-add" width={15} height={15} sx={{ mr: 1 }} />
+            Image Avec texte
+          </Button>
+          <Button variant="contained" className="setting-icon">
+            <ReactSvg
+              name="setting"
+              width={12}
+              height={12}
+              sx={{ "& >div": { display: "flex" } }}
+            />
+          </Button>
+        </Stack>
+      )}
     </div>
   );
 }
 
-export default function ImageCarousel({ isLoading }) {
+export default function ImageCarousel({ isLoading, onClick, open }) {
   const [[page, direction], setPage] = useState([0, 0]);
   const [page1, setPage1] = useState(0);
   const imageIndex = Math.abs(page % product?.length);
@@ -129,6 +150,8 @@ export default function ImageCarousel({ isLoading }) {
             isActive={imageIndex}
             key={Math.random()}
             setPage={setPage}
+            onClick={onClick}
+            open={open}
           />
         </motion.div>
       </AnimatePresence>

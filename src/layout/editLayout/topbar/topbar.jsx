@@ -11,7 +11,7 @@ export default function EditBar() {
     <RootStyled
       position="fixed"
       color="inherit"
-      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 2 }}
     >
       <Toolbar className="toolbar">
         <Stack direction="row" spacing={2}>

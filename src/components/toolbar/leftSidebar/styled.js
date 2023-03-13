@@ -9,21 +9,43 @@ const RootStyled = styled(Drawer)(({ theme }) => ({
   [`& .MuiDrawer-paper`]: {
     width: 280,
     boxSizing: "border-box",
-    padding: "22px",
+    padding: "12px",
   },
   "& .MuiAccordion-root": {
-    marginTop: 0,
+    margin: "0 !important",
     boxShadow: "none",
     "& .MuiAccordionSummary-root": {
-      minHeight: 48,
+      minHeight: 32,
       flexDirection: "row-reverse",
       "& .MuiAccordionSummary-content": {
-        margin: theme.spacing(1, 0),
+        margin: theme.spacing(0),
       },
       "& .MuiAccordionSummary-expandIconWrapper": {
         "&.Mui-expanded": {
           transform: "rotate(90deg)",
         },
+      },
+      "&.Mui-expanded": {
+        background: "#EFF6FF",
+        borderRadius: "8px",
+      },
+    },
+
+    "& .accordion-summary": {
+      "&.Mui-expanded": {
+        background: "transparent",
+        borderRadius: "8px",
+      },
+    },
+    "&:before": {
+      display: "none",
+    },
+    "& .clickable": {
+      cursor: "pointer",
+    },
+    "& .MuiCollapse-root": {
+      "& .MuiAccordionDetails-root": {
+        padding: theme.spacing(1, 2),
       },
     },
   },
