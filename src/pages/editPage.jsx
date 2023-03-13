@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 // components
-import { SearchResultToolbar, Sidebar } from "components";
+import {
+  SearchResultToolbar,
+  Sidebar,
+  SearchResultCard,
+  RightSidebar,
+} from "components";
 export default function EditPage() {
+  const [open, setOpen] = useState(null);
   const [state, setState] = useState("desktop");
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -18,6 +25,15 @@ export default function EditPage() {
         isEdit
       />
       <Sidebar />
+      <SearchResultCard
+        viewPort={state}
+        isLoading={loading}
+        onClick={(val) => setOpen(val)}
+        open={open}
+        isEditMode
+      />
+
+      <RightSidebar open={open} />
     </>
   );
 }

@@ -1,2 +1,3 @@
 export * from "./searchResultToolbar";
-export * from "./sidebar";
+export * from "./leftSidebar";
+export * from "./rightSidebar";

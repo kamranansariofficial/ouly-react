@@ -20,13 +20,21 @@ const RootStyled = styled("div")(({ theme }) => ({
     img: {
       borderRadius: "8px",
       objectPosition: "center",
+      cursor: "pointer",
       border: `1px solid ${theme.palette.divider}`,
       ...(theme.direction === "rtl" && {
         "-webkit-transform": "scaleX(-1)",
         transform: "scaleX(-1)",
       }),
     },
+    "&.active": {
+      img: {
+        border: `1px solid ${theme.palette.primary.main} !important`,
+        borderRadius: 4,
+      },
+    },
   },
+
   "& .bg-overlay": {
     top: 0,
     width: "100%",

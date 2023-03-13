@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // styles override
 import RootStyled from "./styled";
+import ReactSvg from "utils/reactSVG";
 
 const product = [
   {
@@ -65,10 +66,14 @@ const swipePower = (offset, velocity) => {
 
 // ----------------------------------------------------------------------
 function CarouselItem({ ...props }) {
-  const { item, index, setPage, isLoading } = props;
-
+  const { item, isEditMode, isLoading, onClick, open } = props;
   return (
-    <div className="slide-wrapper">
+    <div
+      className={`slide-wrapper ${
+        isEditMode && open === "product-image" && "active"
+      }`}
+      onClick={() => onClick("product-image")}
+    >
       {isLoading || !item ? (
         <Skeleton variant="rounded" height={385} width="100%" />
       ) : (
@@ -85,9 +90,13 @@ function CarouselItem({ ...props }) {
   );
 }
 
-export default function ImageCarousel({ isLoading }) {
+export default function ImageCarousel({
+  isLoading,
+  onClick,
+  open,
+  isEditMode,
+}) {
   const [[page, direction], setPage] = useState([0, 0]);
-  const [page1, setPage1] = useState(0);
   const imageIndex = Math.abs(page % product?.length);
 
   const paginate = (newDirection) => {
@@ -129,9 +138,13 @@ export default function ImageCarousel({ isLoading }) {
             isActive={imageIndex}
             key={Math.random()}
             setPage={setPage}
+            onClick={onClick}
+            open={open}
+            isEditMode={isEditMode}
           />
         </motion.div>
       </AnimatePresence>
+
       <Stack
         direction="row"
         justifyContent={product.length < 6 ? "center" : "left"}

@@ -3,6 +3,9 @@ import { Toolbar } from "@mui/material";
 
 const RootStyled = styled(Toolbar)(({ theme, isLoading, isEdit }) => ({
   zIndex: theme.zIndex.drawer + 1,
+  position: "sticky",
+  top: 88,
+  width: "100%",
   justifyContent: !isEdit ? "end" : "space-between",
   height: 88,
   paddingTop: theme.spacing(2),
@@ -16,7 +19,7 @@ const RootStyled = styled(Toolbar)(({ theme, isLoading, isEdit }) => ({
     background: "#F0F5FF",
     height: 40,
     width: 40,
-    borderRadius: 12,
+    borderRadius: 8,
     "&.active": {
       background: theme.palette.primary.main,
       color: theme.palette.common.white,

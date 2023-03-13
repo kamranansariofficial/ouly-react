@@ -88,28 +88,72 @@ const Incrementer = ({ isLoading }) => {
   );
 };
 
-export default function ProductSummary({ isLoading, viewPort }) {
+export default function ProductSummary({
+  isLoading,
+  viewPort,
+  open,
+  onClick,
+  isEditMode,
+}) {
   return (
     <RootStyled isLoading={isLoading}>
+      <Typography variant="body2" pl="2px">
+        {isLoading ? <Skeleton variant="text" width={68} /> : "CURLISTAR"}
+      </Typography>
+
+      <Typography
+        variant="h5"
+        position="relative"
+        display="inline"
+        onClick={() => onClick("content-heading")}
+        sx={{
+          outline: (theme) =>
+            open === "content-heading"
+              ? `1px solid ${theme.palette.primary.main}`
+              : "",
+          px: "2px",
+          "& .edit-btn": {
+            top: -19,
+            right: -2,
+            left: "unset",
+            justifyContent: "end",
+            width: "100%",
+          },
+        }}
+      >
+        {" "}
+        {isLoading ? (
+          <Skeleton variant="text" width={174} />
+        ) : (
+          "CURLISTA Pro 5 IN 1"
+        )}
+        {open === "content-heading" && (
+          <>
+            <Stack direction="row" className="edit-btn" spacing={0.5}>
+              <Box className="title-top">
+                <ReactSVG name="text" width={15} height={15} />
+                Curlista Pro 5 in 1
+              </Box>
+              <Box className="setting-btn">
+                <ReactSVG
+                  name="setting"
+                  width={12}
+                  height={12}
+                  sx={{ "& > div": { display: "flex" } }}
+                />
+              </Box>
+            </Stack>
+          </>
+        )}
+      </Typography>
       <Stack spacing={0.5}>
-        <Typography variant="body2">
-          {isLoading ? <Skeleton variant="text" width={68} /> : "CURLISTAR"}
-        </Typography>
-        <Typography variant="h5">
-          {" "}
-          {isLoading ? (
-            <Skeleton variant="text" width={174} />
-          ) : (
-            "CURLISTA Pro 5 IN 1"
-          )}
-        </Typography>
         <Stack
           direction={"row"}
           justifyContent={{ xs: "space-between", md: "start" }}
           alignItems="center"
           spacing={2}
         >
-          <Typography variant="body1">
+          <Typography variant="body1" pl="2px">
             {" "}
             {isLoading ? (
               <Skeleton variant="text" width={86} />
