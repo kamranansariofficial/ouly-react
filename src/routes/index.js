@@ -12,7 +12,8 @@ const Loadable = (Component) => (props) => {
   // const isDashboard = pathname.includes("/dashboard");
 
   return (
-    <Suspense fallback={<LoadingScreen />}>
+    // fallback={<LoadingScreen />}
+    <Suspense>
       <Component {...props} />
     </Suspense>
   );
