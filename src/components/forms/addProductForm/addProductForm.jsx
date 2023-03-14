@@ -13,6 +13,7 @@ import {
   IconButton,
   Skeleton,
 } from "@mui/material";
+import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 // components
 import { Select } from "components";
 import RootStyled from "./styled";
@@ -98,6 +99,25 @@ export default function EditProductForm({ isLoading }) {
                 )}
               </Grid>
             </Grid>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="end"
+              spacing={2}
+              mt={3}
+            >
+              <Button variant="text" color="error" size="small">
+                cancel
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                size="small"
+                startIcon={<DoneRoundedIcon />}
+              >
+                Keep
+              </Button>
+            </Stack>
           </CardContent>
         </Card>
       ))}

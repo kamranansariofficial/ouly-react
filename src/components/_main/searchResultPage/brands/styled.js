@@ -15,7 +15,9 @@ const RootStyled = styled("div")(({ theme, isLoading }) => ({
     border: `1px solid ${theme.palette.primary.main}`,
   },
   "& .brands-wrapper": {
-    border: `1px solid transparent`,
+    position: "relative",
+    borderLeft: `1px solid transparent`,
+    borderRight: `1px solid transparent`,
     borderTop: "1px solid #f2f5f7",
     borderBottom: "1px solid #f2f5f7",
     "&.active": {
@@ -23,8 +25,9 @@ const RootStyled = styled("div")(({ theme, isLoading }) => ({
     },
   },
   "& .logo-wrapper": {
+    position: "relative",
     border: `1px solid transparent`,
-    padding: theme.spacing(1, 2),
+    padding: theme.spacing(1),
     "&.active": {
       border: `1px solid ${theme.palette.primary.main}`,
     },

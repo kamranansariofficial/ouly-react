@@ -9,7 +9,11 @@ function Home() {
     }, 1500);
   }, []);
 
-  return <HomeTabs isLoading={loading} />;
+  return (
+    <>
+      <HomeTabs isLoading={loading} />
+    </>
+  );
 }
 
 export default Home;

@@ -66,7 +66,7 @@ export default function Brands({ isLoading, onClick, open }) {
         <Stack
           direction="row"
           justifyContent="center"
-          spacing={3}
+          spacing={1}
           py={1.8}
           onClick={(e) => {
             e.stopPropagation();
@@ -74,6 +74,44 @@ export default function Brands({ isLoading, onClick, open }) {
           }}
           className={`brands-wrapper ${open === "brands-wrapper" && "active"}`}
         >
+          {open === "brands-wrapper" && (
+            <Stack
+              direction="row"
+              className="edit-btn"
+              justifyContent={"space-between"}
+            >
+              <Stack direction="row" className="title-top">
+                <ReactSVG name="image-add" width={15} />
+                Div1
+              </Stack>
+              <Stack direction="row">
+                <Box className="setting-btn">
+                  <ReactSVG
+                    name="replace"
+                    width={12}
+                    height={12}
+                    sx={{ "& > div": { display: "flex" } }}
+                  />
+                </Box>
+                <Box className="setting-btn">
+                  <ReactSVG
+                    name="replace"
+                    width={12}
+                    height={12}
+                    sx={{ "& > div": { display: "flex" } }}
+                  />
+                </Box>
+                <Box className="setting-btn">
+                  <ReactSVG
+                    name="lock"
+                    width={12}
+                    height={12}
+                    sx={{ "& > div": { display: "flex" } }}
+                  />
+                </Box>
+              </Stack>
+            </Stack>
+          )}
           {companyLogo.map((v, i) => (
             <Box
               onClick={(e) => {
@@ -84,7 +122,36 @@ export default function Brands({ isLoading, onClick, open }) {
                 open === `brands-wrapper-${i}` && "active"
               }`}
             >
-              <ReactSVG key={v} name={v} width="60px" />
+              {open === `brands-wrapper-${i}` && (
+                <Stack
+                  direction="row"
+                  className="edit-btn"
+                  justifyContent={"space-between"}
+                >
+                  <Stack direction="row">
+                    <Box className="setting-btn">
+                      <ReactSVG
+                        name="replace"
+                        width={12}
+                        height={12}
+                        sx={{ "& > div": { display: "flex" } }}
+                      />
+                    </Box>
+                    <Box className="setting-btn">
+                      <ReactSVG
+                        name="lock"
+                        width={12}
+                        height={12}
+                        sx={{ "& > div": { display: "flex" } }}
+                      />
+                    </Box>
+                  </Stack>
+                  <Stack direction="row" className="title-top">
+                    Div1
+                  </Stack>
+                </Stack>
+              )}
+              <ReactSVG key={v} name={v} width="100px" />
             </Box>
           ))}
         </Stack>
