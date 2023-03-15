@@ -1,7 +1,6 @@
 import * as React from "react";
-
+// material
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import RootStyled from "./styled";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -16,9 +15,7 @@ export default function ClippedDrawer({ children }) {
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Toolbar className="toolbar">
-        <Typography variant="h4" noWrap component="div">
-          Ouly.AI
-        </Typography>
+        <img src="/static/images/logo.png" alt="Logo" height={34} width={119} />
         <Stack direction="row" className="actions-stack" gap={2}>
           <IconButton
             size="large"

@@ -9,6 +9,13 @@ export default function SignUpCard() {
   return (
     <RootStyled>
       <CardContent>
+        <img
+          src="/static/images/signupLogo.png"
+          alt="Logo"
+          height={104}
+          width={100}
+        />
+
         <Typography variant="h3" textAlign="center" color="text.primary">
           Welcome, Ouly.AI
         </Typography>

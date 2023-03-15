@@ -12,9 +12,26 @@ const RootStyled = styled(Stack)(({ theme }) => ({
     cursor: "pointer",
     borderRadius: "8px",
     border: `1px solid transparent`,
-
+    "& .img-icon": {
+      display: "none",
+    },
     "&.active": {
-      border: `1px solid ${theme.palette.primary.main}`,
+      "& .img-icon": {
+        height: "100%",
+        width: "100%",
+        top: 0,
+        left: 0,
+        position: "absolute",
+        borderRadius: "8px",
+        background:
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        svg: {
+          fill: "#fff",
+        },
+      },
     },
   },
 }));

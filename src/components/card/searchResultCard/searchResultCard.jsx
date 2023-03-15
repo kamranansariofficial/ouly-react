@@ -78,7 +78,12 @@ export default function SearchResultCard({
             />
           </Grid>
         </Grid>
-        <Brands isLoading={isLoading} onClick={onClick} open={open} />
+        <Brands
+          isLoading={isLoading}
+          onClick={onClick}
+          open={open}
+          viewPort={viewPort}
+        />
         {/* <CustomerProducts isLoading={isLoading} />
         <Banner isLoading={isLoading} />
         <Blog isLoading={isLoading} />

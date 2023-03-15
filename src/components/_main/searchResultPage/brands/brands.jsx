@@ -15,10 +15,11 @@ const companyLogo = [
   "fedex",
 ];
 
-export default function Brands({ isLoading, onClick, open }) {
+export default function Brands({ isLoading, onClick, open, viewPort }) {
   return (
     <RootStyled
       isLoading={isLoading}
+      viewPort={viewPort}
       onClick={(e) => {
         e.stopPropagation();
         onClick("brands-root");

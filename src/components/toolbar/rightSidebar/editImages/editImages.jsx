@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
 // material
 import {
-  Grid,
   Stack,
   Typography,
   Button,
@@ -9,6 +8,7 @@ import {
   TextField,
   Box,
 } from "@mui/material";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 // componets
 import RootStyled from "./styled";
 import { UploadMultipleFile } from "components";
@@ -46,14 +46,21 @@ export default function EditImages() {
         </Typography>
         <Box className="grid-preview">
           {data.map((v, i) => (
-            <img
-              src={`/static/images/${v}.png`}
-              alt="select-img"
-              className={`select-img ${v == active ? "active" : ""}`}
+            <Box
+              position="relative"
+              className={`select-img ${v == active && "active"}`}
               onClick={() => setactive(v)}
-              width="100%"
-              height="100%"
-            />
+            >
+              <img
+                src={`/static/images/${v}.png`}
+                height="100%"
+                width="100%"
+                alt="select-img product-img"
+              />
+              <Box className="img-icon">
+                <CheckCircleRoundedIcon />
+              </Box>
+            </Box>
           ))}
         </Box>
         <Button variant="outlined" color="primary">

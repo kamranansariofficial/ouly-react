@@ -9,6 +9,7 @@ export default function LoginCard() {
   return (
     <RootStyled>
       <CardContent>
+        <img src="/static/images/logo.png" alt="Logo" height={44} width={132} />
         <Typography variant="h3" textAlign="center" color="text.primary">
           Welcome back, Ouly.AI
         </Typography>
