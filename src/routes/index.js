@@ -45,6 +45,7 @@ export default function Router() {
         { path: "customer-information", element: <CustomerInformation /> },
         { path: "advantages-product", element: <AdvantagesProduct /> },
         { path: "product", element: <Product /> },
+        { path: "subscription", element: <SubscriptionPlan /> },
       ],
     },
     {
@@ -69,6 +70,7 @@ const MyProduct = Loadable(lazy(() => import("pages/productInformation")));
 const AddProduct = Loadable(lazy(() => import("pages/addProduct")));
 const Product = Loadable(lazy(() => import("pages/product")));
 const EditPage = Loadable(lazy(() => import("pages/editPage")));
+const SubscriptionPlan = Loadable(lazy(() => import("pages/subscriptionPlan")));
 const AdvantagesProduct = Loadable(
   lazy(() => import("pages/advantagesProduct"))
 );

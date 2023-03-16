@@ -74,7 +74,7 @@ export default function EditProductForm({ isLoading }) {
                     <TextField
                       multiline
                       ref={inputElt}
-                      // className={`describe ${state && "active"}`}
+                      className={`describe active `}
                       rows={4}
                       fullWidth
                       autoComplete="describe"

@@ -15,8 +15,10 @@ import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 import RootStyled from "./styled";
 import { Popover } from "components";
 import ReactSvg from "utils/reactSVG";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductViewCard() {
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const anchorRefFilter = React.useRef(null);
   const onOpenFilter = () => {
@@ -74,6 +76,7 @@ export default function ProductViewCard() {
                 variant="contained"
                 size="small"
                 className="contained-btn"
+                onClick={() => navigate("/dashboard/subscription")}
               >
                 Download
               </Button>

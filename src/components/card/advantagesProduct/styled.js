@@ -32,7 +32,9 @@ const RootStyled = styled(Card)(({ theme, isLoading }) => ({
       paddingRight: theme.spacing(3),
       marginBottom: theme.spacing(4),
       position: "relative",
-
+      "& .MuiCollapse-root": {
+        width: "100% !important",
+      },
       "& .MuiListItem-root": {
         marginBottom: theme.spacing(2),
         "& .MuiListItemIcon-root": {
@@ -62,8 +64,7 @@ const RootStyled = styled(Card)(({ theme, isLoading }) => ({
       },
       "& .card-icon-feild": {
         "& .MuiInputBase-root": {
-          height: 158,
-          width: 148,
+          width: "100%",
           borderRadius: "18px",
           background: theme.palette.background.paper,
           border: "1px solid #EBE8FF",

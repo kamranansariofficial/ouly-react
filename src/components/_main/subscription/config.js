@@ -1,0 +1,47 @@
+export const subscriptionData = [
+  {
+    title: "Expert",
+    price: "$ 49.99",
+    subscription: "/yearly",
+    detail: "Soit 1.67$ par jour",
+    children: [
+      "Unlimited number of products",
+      "Unlimited number of orders",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+    ],
+  },
+  {
+    label: "Populaire",
+    title: "Pro",
+    price: "$ 65.83",
+    subscription: "/month",
+    detail: "Soit 1.67$ par jour",
+    children: [
+      "Unlimited number of products",
+      "Unlimited number of orders",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+    ],
+  },
+  {
+    title: "Expert",
+    price: "$ 49.99",
+    subscription: "/yearly",
+    detail: "Soit 1.67$ par jour",
+    children: [
+      "Unlimited number of products",
+      "Unlimited number of orders",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+      "Unlimited number of clients",
+    ],
+  },
+];
