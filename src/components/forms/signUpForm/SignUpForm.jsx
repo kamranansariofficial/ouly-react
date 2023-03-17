@@ -58,7 +58,7 @@ export default function RegisterForm() {
           )}
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Stack spacing={1} sx={{ width: 1 }}>
+            <Stack spacing={1}>
               <Typography variant="subtitle2">First Name</Typography>
               <TextField
                 fullWidth
@@ -68,7 +68,7 @@ export default function RegisterForm() {
                 helperText={touched.firstName && errors.firstName}
               />
             </Stack>
-            <Stack spacing={1} sx={{ width: 1 }}>
+            <Stack spacing={1}>
               <Typography variant="subtitle2">Last Name</Typography>
               <TextField
                 fullWidth

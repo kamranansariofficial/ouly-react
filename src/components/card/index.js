@@ -7,3 +7,4 @@ export * from "./advantagesProduct";
 export * from "./searchResultCard";
 export * from "./productViewCard";
 export * from "./subscriptionCard";
+export * from "./supportCard";
