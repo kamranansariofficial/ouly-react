@@ -1,6 +1,15 @@
 import React from "react";
 // material
-import { Stack, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Stack,
+  TextField,
+  Typography,
+  Box,
+  IconButton,
+} from "@mui/material";
+// utils
+import ReactSvg from "utils/reactSVG";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 // components
@@ -30,7 +39,23 @@ export default function EditHeading() {
           size="small"
         />
       </Stack>
-      <ReactQuill theme="snow" value={value} onChange={setValue} />
+      <Box className="react-quill-main" position="relative">
+        <ReactQuill theme="snow" value={value} onChange={setValue} />
+        <Box className="editable-box">
+          <Stack>
+            <IconButton size="small">
+              <ReactSvg name="sparkles" width="9px" height={11} />
+            </IconButton>
+
+            <IconButton size="small">
+              <ReactSvg name="replace" width="9px" height={11} />
+            </IconButton>
+          </Stack>
+        </Box>
+      </Box>
+      <Button variant="outlined" color="primary" size="small">
+        Generator
+      </Button>
     </RootStyled>
   );
 }

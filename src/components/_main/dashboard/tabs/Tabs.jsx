@@ -11,7 +11,7 @@ import {
   MyProduct,
   OulyTabSection,
   Plagify,
-  ProductInformation,
+  ProductViewCard,
 } from "components";
 import RootStyled from "./styled";
 export default function Home({ isLoading }) {
@@ -33,6 +33,7 @@ export default function Home({ isLoading }) {
           <Zoom in={value === 0}>
             <div>
               <OulyTabSection />
+              <ProductViewCard />
             </div>
           </Zoom>
         </TabPanel>

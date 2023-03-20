@@ -25,8 +25,8 @@ export default function SearchResultPage() {
       <Box
         width={{ sm: "50%", md: "20%" }}
         position="fixed"
-        bottom={50}
-        right={90}
+        bottom={42}
+        right={74}
       >
         <Stack spacing={3} direction="row">
           {loading ? (

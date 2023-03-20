@@ -7,6 +7,10 @@ const RootStyled = styled(Card)(({ theme }) => ({
   width: "100%",
   "& .MuiCardContent-root": {
     padding: theme.spacing(5.2),
+    img: {
+      margin: theme.spacing(0, "auto", 3),
+      display: "block",
+    },
   },
   [theme.breakpoints.down("xl")]: {
     marginTop: theme.spacing(10),

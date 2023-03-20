@@ -26,7 +26,9 @@ import RootStyled from "./styled";
 export default function MyProductForm({ isLoad }) {
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
-
+  const [upload, setupload] = useState({
+    loading: false,
+  });
   const [state, setstate] = useState({
     loading: false,
   });
@@ -34,6 +36,7 @@ export default function MyProductForm({ isLoad }) {
   const handleDrop = useCallback(
     (acceptedFiles) => {
       setstate({ ...state, loading: true });
+      setupload({ ...upload, loading: true });
       setTimeout(() => {
         const file = acceptedFiles[0];
         if (file) {
@@ -42,11 +45,34 @@ export default function MyProductForm({ isLoad }) {
             loading: false,
             preview: URL.createObjectURL(file),
           });
+          setupload({
+            ...file,
+            loading: false,
+            preview: URL.createObjectURL(file),
+          });
         }
       }, 2000);
     },
-    [state]
+    [state, upload]
   );
+
+  const handleDrop1 = useCallback(
+    (acceptedFiles) => {
+      setupload({ ...upload, loading: true });
+      setTimeout(() => {
+        const file = acceptedFiles[0];
+        if (file) {
+          setupload({
+            ...file,
+            loading: false,
+            preview: URL.createObjectURL(file),
+          });
+        }
+      }, 2000);
+    },
+    [state, upload]
+  );
+
   const LoginSchema = Yup.object().shape({
     // name: Yup.string().required("Name is required"),
     // description: Yup.string().required("Short Description is required"),
@@ -152,9 +178,9 @@ export default function MyProductForm({ isLoad }) {
                           height: "128px",
                           bgcolor: "background.paper",
                         }}
-                        preview={state.preview}
-                        onDrop={(file) => handleDrop(file)}
-                        loading={state.loading}
+                        preview={upload.preview}
+                        onDrop={(file) => handleDrop1(file)}
+                        loading={upload.loading}
                       />
                     )}
                   </>

@@ -11,7 +11,7 @@ const RootStyled = styled(Card)(({ theme, isLoading }) => ({
   background: isLoading ? "transparent" : theme.palette.background.paper,
   boxShadow: isLoading ? "none" : "auto",
   "& .MuiCardContent-root": {
-    padding: theme.spacing(4),
+    padding: theme.spacing(4, 4, 3),
   },
 }));
 export default RootStyled;

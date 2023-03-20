@@ -111,19 +111,19 @@ export default function AdvantagesProduct({ isLoading }) {
             spacing={2}
             mb={2}
           >
+            <Collapse in={state1} orientation="horizontal">
+              <TextField
+                multiline
+                className="card-icon-feild"
+                rows={4}
+                fullWidth
+                autoComplete="describe"
+                type={"text"}
+                defaultValue="Text generated"
+              />
+            </Collapse>
             {iconData.map((v) => (
               <>
-                <Collapse in={state1} orientation="horizontal">
-                  <TextField
-                    multiline
-                    className="card-icon-feild"
-                    rows={4}
-                    fullWidth
-                    autoComplete="describe"
-                    type={"text"}
-                    defaultValue="Text generated"
-                  />
-                </Collapse>
                 <Collapse in={!state1} orientation="horizontal">
                   <>
                     {isLoading ? (
