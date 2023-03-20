@@ -88,7 +88,7 @@ export default function MyProductForm({ isLoad }) {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        navigate("/product");
+        navigate("/my-product");
       }, 1500);
     },
   });

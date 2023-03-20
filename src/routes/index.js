@@ -39,7 +39,7 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/" replace /> },
-        { path: "", element: <Dashboard /> },
+        { path: "dashboard", element: <Dashboard /> },
         { path: "my-product", element: <MyProduct /> },
         { path: "edit-product", element: <AddProduct /> },
         { path: "customer-information", element: <CustomerInformation /> },

@@ -10,12 +10,12 @@ const menuConfig = [
     icon: "box-add",
   },
   {
-    link: "/dashboard/support",
+    link: "/support",
     title: "Support",
     icon: "support",
   },
   {
-    link: "/dashboard/settings",
+    link: "/settings",
     title: "Settings",
     icon: "gear",
   },

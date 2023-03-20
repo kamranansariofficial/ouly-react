@@ -14,7 +14,9 @@ import {
   ProductViewCard,
 } from "components";
 import RootStyled from "./styled";
+
 export default function Home({ isLoading }) {
+  const search = window.location.search;
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -33,7 +35,7 @@ export default function Home({ isLoading }) {
           <Zoom in={value === 0}>
             <div>
               <OulyTabSection />
-              <ProductViewCard />
+              {Boolean(search) && <ProductViewCard />}
             </div>
           </Zoom>
         </TabPanel>

@@ -15,7 +15,7 @@ export default function ClippedDrawer({ children }) {
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Toolbar className="toolbar">
-        <img src="/static/images/logo.png" alt="Logo" height={34} width={119} />
+        <img src="/static/images/logo.png" alt="Logo" width={119} />
         <Stack direction="row" className="actions-stack" gap={2}>
           <IconButton
             size="large"
