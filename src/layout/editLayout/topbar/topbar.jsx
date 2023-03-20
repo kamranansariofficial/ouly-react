@@ -5,8 +5,10 @@ import { IconButton, Button, Stack, Toolbar, Divider } from "@mui/material";
 import ReactSVG from "utils/reactSVG";
 // components
 import RootStyled from "./styled";
+import { useNavigate } from "react-router-dom";
 
 export default function EditBar() {
+  const navigate = useNavigate();
   return (
     <RootStyled
       position="fixed"
@@ -58,7 +60,12 @@ export default function EditBar() {
             variant="middle"
             flexItem
           />
-          <Button size="large" variant="contained" className="save-btn">
+          <Button
+            size="large"
+            variant="contained"
+            className="save-btn"
+            onClick={() => navigate("/dashboard?product=12313")}
+          >
             Save
           </Button>
         </Stack>

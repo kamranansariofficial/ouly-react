@@ -101,7 +101,7 @@ export default function InformationCard({ isLoading }) {
                   size="large"
                   color="secondary"
                   fullWidth
-                  onClick={() => navigate("/dashboard/")}
+                  onClick={() => navigate("/")}
                 >
                   Back
                 </Button>
@@ -114,7 +114,7 @@ export default function InformationCard({ isLoading }) {
                   size="large"
                   color="primary"
                   fullWidth
-                  onClick={() => navigate("/dashboard/customer-information")}
+                  onClick={() => navigate("/customer-information")}
                 >
                   continue
                 </Button>

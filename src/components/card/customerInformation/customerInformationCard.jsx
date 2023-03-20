@@ -225,7 +225,7 @@ export default function CustomerInformationCard({ isLoading }) {
                 size="large"
                 color="secondary"
                 fullWidth
-                onClick={() => navigate("/dashboard/product")}
+                onClick={() => navigate("/product")}
               >
                 Back
               </Button>
@@ -237,7 +237,7 @@ export default function CustomerInformationCard({ isLoading }) {
                 variant="contained"
                 size="large"
                 color="primary"
-                onClick={() => navigate("/dashboard/edit-product")}
+                onClick={() => navigate("/edit-product")}
                 fullWidth
               >
                 continue

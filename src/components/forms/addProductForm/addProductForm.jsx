@@ -110,7 +110,7 @@ export default function EditProductForm({ isLoading }) {
               variant="outlined"
               size="large"
               color="secondary"
-              onClick={() => navigate("/dashboard/customer-information")}
+              onClick={() => navigate("/customer-information")}
               fullWidth
             >
               Back
@@ -123,7 +123,7 @@ export default function EditProductForm({ isLoading }) {
               variant="contained"
               size="large"
               color="primary"
-              onClick={() => navigate("/dashboard/advantages-product")}
+              onClick={() => navigate("/advantages-product")}
               fullWidth
             >
               continue

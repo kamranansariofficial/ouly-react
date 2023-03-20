@@ -5,7 +5,7 @@ const menuConfig = [
     icon: "dashboard",
   },
   {
-    link: "/dashboard/product",
+    link: "/product",
     title: "Product",
     icon: "box-add",
   },

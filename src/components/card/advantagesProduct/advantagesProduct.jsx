@@ -157,7 +157,7 @@ export default function AdvantagesProduct({ isLoading }) {
               variant="outlined"
               size="large"
               color="secondary"
-              onClick={() => navigate("/dashboard/edit-product")}
+              onClick={() => navigate("/edit-product")}
               fullWidth
             >
               back

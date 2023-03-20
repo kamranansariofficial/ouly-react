@@ -35,15 +35,15 @@ export default function Router() {
       ],
     },
     {
-      path: "dashboard",
+      path: "/",
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/" replace /> },
-        { path: "", element: <Dashboard /> },
-        { path: "product", element: <MyProduct /> },
-        { path: "edit-product", element: <AddProduct /> },
-        { path: "customer-information", element: <CustomerInformation /> },
-        { path: "advantages-product", element: <AdvantagesProduct /> },
+        { element: <Navigate to="/dashboard" replace /> },
+        { path: "/dashboard", element: <Dashboard /> },
+        { path: "/product", element: <MyProduct /> },
+        { path: "/edit-product", element: <AddProduct /> },
+        { path: "/customer-information", element: <CustomerInformation /> },
+        { path: "/advantages-product", element: <AdvantagesProduct /> },
       ],
     },
     {
@@ -53,6 +53,10 @@ export default function Router() {
         { path: "", element: <SearchResultPage /> },
         { path: "edit-page", element: <EditPage /> },
       ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
 }
@@ -73,3 +77,4 @@ const AdvantagesProduct = Loadable(
 const CustomerInformation = Loadable(
   lazy(() => import("pages/customerInformation"))
 );
+const NotFound = Loadable(lazy(() => import("pages/notFound")));
