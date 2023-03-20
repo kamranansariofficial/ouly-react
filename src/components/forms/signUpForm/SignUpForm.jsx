@@ -42,7 +42,7 @@ export default function RegisterForm() {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        navigate("/");
+        navigate("/dashboard");
       }, 3000);
     },
   });
